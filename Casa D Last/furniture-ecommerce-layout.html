@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cozy Haven - Modern Furniture & Interior Design</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css">
+    
+    <style>
+        :root {
+            --beige: #F5EFE7;
+            --dark-beige: hsl(40, 55%, 17%);
+            --coffee: #8B7355;
+            --dark-coffee: #6B5744;
+            --cream: #FFF8F0;
+            --charcoal: #3E3E3E;
+            --soft-brown: #A89080;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--charcoal);
+            background: var(--cream);
+        }
+
+        /* Navbar Customization */
+        
+        .navbar {
+            background: rgba(255, 248, 240, 0.95) !important;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--dark-beige);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--coffee) !important;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-link {
+            color: var(--charcoal) !important;
+            font-weight: 400;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+            padding: 0.5rem 1.5rem !important;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 1.5rem;
+            background: var(--coffee);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--coffee) !important;
+        }
+
+        .nav-link:hover::after {
+            width: calc(100% - 3rem);
+        }
+
+        .navbar-icons .btn {
+            color: var(--charcoal);
+            font-size: 1.3rem;
+            padding: 0.25rem 0.5rem;
+            transition: all 0.2s ease;
+            background: transparent;
+            border: none;
+        }
+
+        .navbar-icons .btn:hover {
+            color: var(--coffee);
+            transform: translateY(-2px);
+        }
+
+        .badge-custom {
+            position: absolute;
+            top: -6px;
+            right: -8px;
+            background: var(--coffee);
+            font-size: 0.7rem;
+            padding: 0.25rem 0.4rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--beige) 0%, var(--dark-beige) 100%);
+            padding: 120px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(139, 115, 85, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 600;
+            line-height: 1.1;
+            color: var(--dark-coffee);
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--soft-brown);
+            font-weight: 300;
+            line-height: 1.8;
+        }
+
+        .btn-primary-custom {
+            background: var(--coffee);
+            border: none;
+            color: white;
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 24px rgba(139, 115, 85, 0.2);
+        }
+
+        .btn-primary-custom:hover {
+            background: var(--dark-coffee);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(139, 115, 85, 0.3);
+            color: white;
+        }
+
+        .btn-outline-custom {
+            background: transparent;
+            border: 2px solid var(--coffee);
+            color: var(--coffee);
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-custom:hover {
+            background: var(--coffee);
+            color: white;
+            border-color: var(--coffee);
+        }
+
+        /* Section Headers */
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 600;
+            color: var(--dark-coffee);
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+
+        .section-subtitle {
+            font-size: 1rem;
+            color: var(--soft-brown);
+            font-weight: 300;
+        }
+
+        /* Category Cards */
+        .category-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 1px solid var(--dark-beige);
+            height: 100%;
+        }
+
+        .category-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 24px 48px rgba(139, 115, 85, 0.15);
+        }
+
+        .category-image {
+            height: 320px;
+            background: linear-gradient(135deg, var(--beige) 0%, var(--dark-beige) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-image::before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -50px;
+            right: -50px;
+        }
+
+        .category-info {
+            padding: 2rem;
+        }
+
+        .category-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            margin-bottom: 0.75rem;
+            color: var(--dark-coffee);
+            font-weight: 600;
+        }
+
+        .category-info p {
+            color: var(--soft-brown);
+            font-size: 0.95rem;
+            font-weight: 300;
+            margin-bottom: 1.25rem;
+        }
+
+        .category-link {
+            color: var(--coffee);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s ease;
+        }
+
+        .category-link:hover {
+            gap: 0.75rem;
+            color: var(--dark-coffee);
+        }
+
+        /* Features Section */
+        .features {
+            background: white;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 2rem 1.5rem;
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: var(--beige);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.25rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover .feature-icon {
+            background: var(--coffee);
+            transform: scale(1.1);
+        }
+
+        .feature-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--dark-coffee);
+            font-weight: 600;
+        }
+
+        .feature-item p {
+            color: var(--soft-brown);
+            font-size: 0.875rem;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            background: var(--beige);
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.625rem;
+            color: var(--dark-coffee);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .newsletter p {
+            color: var(--soft-brown);
+            font-size: 1rem;
+            font-weight: 300;
+        }
+
+        .newsletter-form .form-control {
+            border: 2px solid var(--dark-beige);
+            border-radius: 50px;
+            padding: 1.125rem 2rem;
+            font-size: 0.95rem;
+            background: white;
+        }
+
+        .newsletter-form .form-control:focus {
+            border-color: var(--coffee);
+            box-shadow: none;
+        }
+
+        .newsletter-form .btn {
+            padding: 1.125rem 3rem;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: white;
+        }
+
+        footer h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            color: var(--beige);
+            font-weight: 600;
+        }
+
+        footer p, footer a {
+            color: #B8B8B8;
+            font-size: 0.875rem;
+            font-weight: 300;
+        }
+
+        footer a {
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--beige);
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        footer ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #888;
+            font-size: 0.875rem;
+            font-weight: 300;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .btn-outline-custom {
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <img class="navbar-brand" src="logo.png" alt="logo" width="100" height="100"   >
+            <a class="navbar-brand" href="#home">Casa D Last</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#categories">Collections</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#blogs">Blogs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+                <div class="navbar-icons d-flex gap-3">
+                    <button class="btn position-relative">
+                        <i class="bi bi-search"></i>
+                    </button>
+                    <button class="btn position-relative">
+                        <i class="bi bi-person"></i>
+                    </button>
+                    <button class="btn position-relative">
+                        <i class="bi bi-bag"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark badge-custom">2</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="position-relative" style="z-index: 2;">
+                        <h1 class="mb-4">Create Your Perfect Sanctuary</h1>
+                        <p class="mb-5 pe-lg-5">Discover thoughtfully crafted furniture and decor that transforms your house into a warm, inviting home. Where modern design meets timeless comfort.</p>
+                        <a href="#categories" class="btn btn-primary-custom me-3">Explore Collections</a>
+                        <a href="#about" class="btn btn-outline-custom">Our Story</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories py-5 my-5" id="categories">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Browse Our Collections</h2>
+                <p class="section-subtitle">Curated selections to bring comfort and style to every corner of your home</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="category-card">
+                        <div class="category-image">🛋️</div>
+                        <div class="category-info">
+                            <h3>Furniture</h3>
+                            <p>Timeless pieces designed for comfort and durability. From sofas to dining sets.</p>
+                            <a href="#" class="category-link">
+                                Shop Now <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="category-card">
+                        <div class="category-image">🕯️</div>
+                        <div class="category-info">
+                            <h3>Home Decor</h3>
+                            <p>Thoughtful accents that add personality and warmth to your living spaces.</p>
+                            <a href="#" class="category-link">
+                                Shop Now <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="category-card">
+                        <div class="category-image">🪴</div>
+                        <div class="category-info">
+                            <h3>Interior Design</h3>
+                            <p>Complete room solutions and styling services for a cohesive, beautiful home.</p>
+                            <a href="#" class="category-link">
+                                Learn More <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features py-5 my-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-item">
+                        <div class="feature-icon">🚚</div>
+                        <h3>Free Delivery</h3>
+                        <p>Complimentary shipping on all orders over $500 to your doorstep</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-item">
+                        <div class="feature-icon">🔄</div>
+                        <h3>Easy Returns</h3>
+                        <p>Changed your mind? No worries. 30-day hassle-free returns</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-item">
+                        <div class="feature-icon">🛡️</div>
+                        <h3>Quality Promise</h3>
+                        <p>Every piece backed by our comprehensive 1-year warranty</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-item">
+                        <div class="feature-icon">💳</div>
+                        <h3>Secure Checkout</h3>
+                        <p>Shop with confidence using our encrypted payment system</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter py-5 my-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <h2 class="mb-3">Stay Inspired</h2>
+                    <p class="mb-4">Subscribe to receive design tips, exclusive offers, and new arrivals</p>
+                    <form class="newsletter-form">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Enter your email address" required>
+                            <button class="btn btn-primary-custom" type="submit">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5" id="contact">
+        <div class="container">
+            <div class="row g-4 mb-5">
+                <div class="col-lg-4">
+                    <h4>Cozy Haven</h4>
+                    <p>Creating beautiful, comfortable spaces that feel like home. Quality furniture and decor with a modern minimalist touch.</p>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="#">Furniture</a></li>
+                        <li><a href="#">Home Decor</a></li>
+                        <li><a href="#">Interior Design</a></li>
+                        <li><a href="#">New Arrivals</a></li>
+                        <li><a href="#">Sale</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">Care Instructions</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom text-center pt-4">
+                <p>&copy; 2024 Cozy Haven. All rights reserved. Designed with love for your home.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
