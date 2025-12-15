@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cozy Haven - Modern Furniture & Interior Design</title>
+    <title>Casa D Last</title>
     
     <!-- Bootstrap CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
@@ -17,7 +17,7 @@
     <style>
         :root {
             --beige: #F5EFE7;
-            --dark-beige: hsl(40, 55%, 17%);
+            --dark-beige: #E8DCC8;
             --coffee: #8B7355;
             --dark-coffee: #6B5744;
             --cream: #FFF8F0;
@@ -32,7 +32,6 @@
         }
 
         /* Navbar Customization */
-        
         .navbar {
             background: rgba(255, 248, 240, 0.95) !important;
             backdrop-filter: blur(10px);
@@ -99,40 +98,51 @@
             padding: 0.25rem 0.4rem;
         }
 
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--beige) 0%, var(--dark-beige) 100%);
-            padding: 120px 0 100px;
+        
+        /* Hero Carousel */
+        .hero-carousel {
+            position: relative;
+            overflow: hidden;
+            height: 600px;
+        }
+        .carousel-item {
+            height: 600px;
             position: relative;
             overflow: hidden;
         }
+        .hero-slide {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding: 80px 0;
+            position: relative;
+        }
+        /* Slide 1 - Gradient Background */
+        .slide-1 {
+            background: linear-gradient(135deg, #F5EFE7 0%, #E8DCC8 100%);
+        }
+        /* Slide 2 - Different Gradient */
+        .slide-2 {
+            background: linear-gradient(135deg, #E8DCC8 0%, #D4C4B0 100%);
+        }
 
-        .hero::before {
+        /* Slide 3 - Another Gradient */
+        .slide-3 {
+            background: linear-gradient(135deg, #FFF8F0 0%, #F5EFE7 100%);
+        }
+        /* Decorative Elements */
+        .hero-slide::before {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(139, 115, 85, 0.1) 0%, transparent 70%);
+            top: -30%;
+            right: -15%;
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(139, 115, 85, 0.08) 0%, transparent 70%);
             border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
         }
-
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 4.5rem;
-            font-weight: 600;
-            line-height: 1.1;
-            color: var(--dark-coffee);
-            letter-spacing: -1px;
-        }
-
-        .hero p {
-            font-size: 1.125rem;
-            color: var(--soft-brown);
-            font-weight: 300;
-            line-height: 1.8;
-        }
+        
 
         .btn-primary-custom {
             background: var(--coffee);
@@ -308,45 +318,9 @@
             line-height: 1.6;
         }
 
-        /* Newsletter Section */
-        .newsletter {
-            background: var(--beige);
-            text-align: center;
-        }
+        
 
-        .newsletter h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.625rem;
-            color: var(--dark-coffee);
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .newsletter p {
-            color: var(--soft-brown);
-            font-size: 1rem;
-            font-weight: 300;
-        }
-
-        .newsletter-form .form-control {
-            border: 2px solid var(--dark-beige);
-            border-radius: 50px;
-            padding: 1.125rem 2rem;
-            font-size: 0.95rem;
-            background: white;
-        }
-
-        .newsletter-form .form-control:focus {
-            border-color: var(--coffee);
-            box-shadow: none;
-        }
-
-        .newsletter-form .btn {
-            padding: 1.125rem 3rem;
-            border-radius: 50px;
-            font-weight: 500;
-            font-size: 0.95rem;
-        }
+        
 
         /* Footer */
         footer {
@@ -407,6 +381,472 @@
                 margin-top: 1rem;
             }
         }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-30px) rotate(5deg);
+            }
+        }
+
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        /* Hero animations */
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        .hero-slide h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 600;
+            line-height: 1.1;
+            color: var(--dark-coffee);
+            letter-spacing: -1px;
+            margin-bottom: 1.5rem;
+        }
+        .hero-slide .subtitle {
+            font-size: 1.5rem;
+            color: var(--coffee);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .hero-slide p {
+            font-size: 1.125rem;
+            color: var(--soft-brown);
+            font-weight: 300;
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+        }
+
+        /* Navbar animation on load */
+        .navbar {
+            animation: slideDown 0.6s ease-out;
+        }
+
+        /* Category cards animation */
+        .category-card {
+            animation: fadeInUp 0.6s ease-out both;
+        }
+
+        /* Feature items animation */
+        .feature-item {
+            animation: fadeInUp 0.6s ease-out both;
+        }
+
+        /* Fade in on scroll class */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in-active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Icon hover animations */
+        .navbar-icons .btn {
+            transition: all 0.3s ease;
+        }
+
+        .navbar-icons .btn:hover {
+            animation: pulse 0.5s ease-in-out;
+        }
+
+        /* Category card enhanced hover */
+        .category-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .category-card:hover {
+            transform: translateY(-12px) scale(1.02);
+        }
+
+        /* Feature icon rotation on hover */
+        .feature-icon {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .feature-item:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* Button animations */
+        .btn-primary-custom, .btn-outline-custom {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary-custom::before, .btn-outline-custom::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn-primary-custom:hover::before, .btn-outline-custom:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+       
+
+        /* Footer links hover effect */
+        footer a {
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        footer a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background: var(--beige);
+            transition: width 0.3s ease;
+        }
+
+        footer a:hover::after {
+            width: 100%;
+        }
+
+        /* Category link arrow animation */
+        .category-link i {
+            transition: transform 0.3s ease;
+        }
+
+        .category-link:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Hero background animation */
+        /* Carousel Controls */
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0.9;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-control-prev {
+            left: 30px;
+        }
+
+        .carousel-control-next {
+            right: 30px;
+        }
+
+        .carousel-control-prev:hover,
+        .carousel-control-next:hover {
+            opacity: 1;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            filter: invert(1);
+        }
+
+        /* Carousel Indicators */
+        .carousel-indicators {
+            bottom: 30px;
+        }
+
+        .carousel-indicators button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--coffee);
+            opacity: 0.5;
+            border: none;
+            margin: 0 6px;
+        }
+
+        .carousel-indicators button.active {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-carousel,
+            .carousel-item,
+            .hero-slide {
+                height: auto;
+                min-height: 500px;
+            }
+
+            .hero-slide h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-slide .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .hero-slide p {
+                font-size: 1rem;
+            }
+            .carousel-control-prev,
+            .carousel-control-next {
+                display: none;
+            }
+
+            .btn-outline-custom {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+        }
+        /* Product Cards */
+        .product-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 1px solid var(--dark-beige);
+            height: 100%;
+            animation: fadeInUp 0.6s ease-out both;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(139, 115, 85, 0.15);
+        }
+
+        .product-image {
+            position: relative;
+            overflow: hidden;
+            height: 350px;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: var(--coffee);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .product-badge.sale-badge {
+            background: #e74c3c;
+        }
+
+        .product-overlay {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            transform: translateX(20px);
+            transition: all 0.4s ease;
+            z-index: 2;
+        }
+
+        .product-card:hover .product-overlay {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .product-overlay .btn {
+            background: white;
+            color: var(--charcoal);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-overlay .btn:hover {
+            background: var(--coffee);
+            color: white;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-info h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark-coffee);
+            font-weight: 600;
+        }
+
+        .product-rating {
+            color: #f39c12;
+            font-size: 0.875rem;
+        }
+
+        .product-rating span {
+            color: var(--soft-brown);
+        }
+
+        .product-price {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--coffee);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: white;
+        }
+
+        .testimonial-card {
+            background: var(--beige);
+            padding: 2rem;
+            border-radius: 16px;
+            height: 100%;
+            transition: all 0.4s ease;
+            border: 1px solid var(--dark-beige);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 32px rgba(139, 115, 85, 0.12);
+        }
+
+        .testimonial-rating {
+            color: #f39c12;
+            font-size: 1rem;
+        }
+
+        .testimonial-text {
+            font-size: 0.95rem;
+            color: var(--charcoal);
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: var(--coffee);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .testimonial-author h5 {
+            font-size: 1rem;
+            color: var(--dark-coffee);
+            font-weight: 600;
+        }
     </style>
 </head>
 <body>
@@ -422,7 +862,6 @@
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#categories">Collections</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#blogs">Blogs</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
@@ -441,27 +880,95 @@
             </div>
         </div>
     </nav>
+<!-- Hero Carousel Section -->
+    <div id="heroCarousel" class="carousel slide hero-carousel" data-bs-ride="carousel" data-bs-interval="4000">
+        <!-- Indicators -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+        </div>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="position-relative" style="z-index: 2;">
-                        <h1 class="mb-4">Create Your Perfect Sanctuary</h1>
-                        <p class="mb-5 pe-lg-5">Discover thoughtfully crafted furniture and decor that transforms your house into a warm, inviting home. Where modern design meets timeless comfort.</p>
-                        <a href="#categories" class="btn btn-primary-custom me-3">Explore Collections</a>
-                        <a href="#about" class="btn btn-outline-custom">Our Story</a>
+        <!-- Slides -->
+        <div class="carousel-inner">
+            <!-- Slide 1 -->
+            <div class="carousel-item active">
+                <div class="hero-slide slide-1">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-7">
+                                <div class="hero-content">
+                                    <div class="discount-badge">🔥 Up to 50% OFF</div>
+                                    <div class="subtitle">New Collection 2024</div>
+                                    <h1>Transform Your Living Space</h1>
+                                    <p>Discover premium furniture that combines timeless design with modern comfort. Limited time offer on all living room sets.</p>
+                                    <a href="#" class="btn-primary-custom">Shop Now</a>
+                                    <a href="#" class="btn-outline-custom">View Collection</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="carousel-item">
+                <div class="hero-slide slide-2">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-7">
+                                <div class="hero-content">
+                                    <div class="discount-badge">✨ Free Shipping</div>
+                                    <div class="subtitle">Best Sellers</div>
+                                    <h1>Comfort Meets Elegance</h1>
+                                    <p>Shop our most-loved pieces that customers can't get enough of. Free delivery on orders over $500.</p>
+                                    <a href="#" class="btn-primary-custom">Explore Best Sellers</a>
+                                    <a href="#" class="btn-outline-custom">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="carousel-item">
+                <div class="hero-slide slide-3">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-7">
+                                <div class="hero-content">
+                                    <div class="discount-badge">🎁 Special Offer</div>
+                                    <div class="subtitle">Interior Design Services</div>
+                                    <h1>Complete Your Dream Home</h1>
+                                    <p>Get a free consultation with our expert designers. Transform your entire space with our personalized styling service.</p>
+                                    <a href="#" class="btn-primary-custom">Book Consultation</a>
+                                    <a href="#" class="btn-outline-custom">See Portfolio</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Categories Section -->
-    <section class="categories py-5 my-5" id="categories">
+        <!-- Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+
+   
+
+
         <div class="container">
-            <div class="section-header">
+            <div class="section-header fade-in">
                 <h2 class="section-title">Browse Our Collections</h2>
                 <p class="section-subtitle">Curated selections to bring comfort and style to every corner of your home</p>
             </div>
@@ -506,8 +1013,254 @@
         </div>
     </section>
 
+    <!-- New Arrivals Section -->
+    <section class="new-arrivals py-5 my-5 fade-in">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">New Arrivals</h2>
+                <p class="section-subtitle">Fresh designs just added to our collection</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/300x350/F5EFE7/8B7355?text=Product+1" alt="Product">
+                            <div class="product-badge">New</div>
+                            <div class="product-overlay">
+                                <button class="btn btn-light btn-sm rounded-circle mb-2"><i class="bi bi-heart"></i></button>
+                                <button class="btn btn-light btn-sm rounded-circle"><i class="bi bi-eye"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h4>Modern Lounge Chair</h4>
+                            <div class="product-rating mb-2">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-half"></i>
+                                <span class="ms-2">(48)</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="product-price">$599</div>
+                                <button class="btn btn-sm btn-primary-custom">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/300x350/E8DCC8/8B7355?text=Product+2" alt="Product">
+                            <div class="product-badge">New</div>
+                            <div class="product-overlay">
+                                <button class="btn btn-light btn-sm rounded-circle mb-2"><i class="bi bi-heart"></i></button>
+                                <button class="btn btn-light btn-sm rounded-circle"><i class="bi bi-eye"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h4>Ceramic Table Lamp</h4>
+                            <div class="product-rating mb-2">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <span class="ms-2">(92)</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="product-price">$129</div>
+                                <button class="btn btn-sm btn-primary-custom">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/300x350/F5EFE7/8B7355?text=Product+3" alt="Product">
+                            <div class="product-badge sale-badge">Sale</div>
+                            <div class="product-overlay">
+                                <button class="btn btn-light btn-sm rounded-circle mb-2"><i class="bi bi-heart"></i></button>
+                                <button class="btn btn-light btn-sm rounded-circle"><i class="bi bi-eye"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h4>Velvet Throw Pillow</h4>
+                            <div class="product-rating mb-2">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star"></i>
+                                <span class="ms-2">(67)</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="product-price">
+                                    <span class="text-decoration-line-through text-muted me-2">$49</span>
+                                    $35
+                                </div>
+                                <button class="btn btn-sm btn-primary-custom">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/300x350/E8DCC8/8B7355?text=Product+4" alt="Product">
+                            <div class="product-badge">New</div>
+                            <div class="product-overlay">
+                                <button class="btn btn-light btn-sm rounded-circle mb-2"><i class="bi bi-heart"></i></button>
+                                <button class="btn btn-light btn-sm rounded-circle"><i class="bi bi-eye"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h4>Wooden Side Table</h4>
+                            <div class="product-rating mb-2">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-half"></i>
+                                <span class="ms-2">(53)</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="product-price">$249</div>
+                                <button class="btn btn-sm btn-primary-custom">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <a href="#" class="btn btn-outline-custom">View All Products</a>
+            </div>
+        </div>
+    </section>
+
+    
+<!-- Best Selling Products Section -->
+    <section class="best-selling py-5 my-5" style="background: var(--beige);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Best Sellers</h2>
+                <p class="section-subtitle">Our customers' favorite picks</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/300x350/E8DCC8/8B7355?text=Best+Seller+1" alt="Classic Leather Sofa">
+                            <div class="product-badge">Best Seller</div>
+                            <div class="product-overlay">
+                                <button class="btn btn-light btn-sm rounded-circle"><i class="bi bi-heart"></i></button>
+                                <button class="btn btn-light btn-sm rounded-circle"><i class="bi bi-eye"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h4>Classic Leather Sofa</h4>
+                            <div class="product-rating mb-2">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <span class="ms-2">(287)</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="product-price">$1,299</div>
+                                <button class="btn btn-sm btn-primary-custom">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/300x350/F5EFE7/8B7355?text=Best+Seller+2" alt="Oak Dining Table Set">
+                            <div class="product-badge">Best Seller</div>
+                            <div class="product-overlay">
+                                <button class="btn btn-light btn-sm rounded-circle"><i class="bi bi-heart"></i></button>
+                                <button class="btn btn-light btn-sm rounded-circle"><i class="bi bi-eye"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h4>Oak Dining Table Set</h4>
+                            <div class="product-rating mb-2">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <span class="ms-2">(342)</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="product-price">$899</div>
+                                <button class="btn btn-sm btn-primary-custom">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/300x350/E8DCC8/8B7355?text=Best+Seller+3" alt="Upholstered Bed Frame">
+                            <div class="product-badge">Best Seller</div>
+                            <div class="product-overlay">
+                                <button class="btn btn-light btn-sm rounded-circle"><i class="bi bi-heart"></i></button>
+                                <button class="btn btn-light btn-sm rounded-circle"><i class="bi bi-eye"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h4>Upholstered Bed Frame</h4>
+                            <div class="product-rating mb-2">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-half"></i>
+                                <span class="ms-2">(198)</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="product-price">$749</div>
+                                <button class="btn btn-sm btn-primary-custom">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://via.placeholder.com/300x350/F5EFE7/8B7355?text=Best+Seller+4" alt="Modern Floor Lamp">
+                            <div class="product-badge">Best Seller</div>
+                            <div class="product-overlay">
+                                <button class="btn btn-light btn-sm rounded-circle"><i class="bi bi-heart"></i></button>
+                                <button class="btn btn-light btn-sm rounded-circle"><i class="bi bi-eye"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h4>Modern Floor Lamp</h4>
+                            <div class="product-rating mb-2">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <span class="ms-2">(421)</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="product-price">$179</div>
+                                <button class="btn btn-sm btn-primary-custom">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- Features Section -->
-    <section class="features py-5 my-5">
+    <section class="features py-5 my-5 fade-in">
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-3 col-md-6">
@@ -542,23 +1295,7 @@
         </div>
     </section>
 
-    <!-- Newsletter Section -->
-    <section class="newsletter py-5 my-5">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <h2 class="mb-3">Stay Inspired</h2>
-                    <p class="mb-4">Subscribe to receive design tips, exclusive offers, and new arrivals</p>
-                    <form class="newsletter-form">
-                        <div class="input-group">
-                            <input type="email" class="form-control" placeholder="Enter your email address" required>
-                            <button class="btn btn-primary-custom" type="submit">Subscribe</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
     <!-- Footer -->
     <footer class="py-5" id="contact">
@@ -575,16 +1312,16 @@
                         <li><a href="#">Home Decor</a></li>
                         <li><a href="#">Interior Design</a></li>
                         <li><a href="#">New Arrivals</a></li>
-                        <li><a href="#">Sale</a></li>
+                        <li><a href="#">Offers</a></li>
+                        
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-4">
                     <h4>Support</h4>
                     <ul>
                         <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">Shipping</a></li>
                         <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Size Guide</a></li>
                         <li><a href="#">Care Instructions</a></li>
                     </ul>
                 </div>
@@ -607,5 +1344,96 @@
 
     <!-- Bootstrap JS Bundle -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript for Animations -->
+    <script>
+        
+        // Initialize carousel with 3 second interval
+        const carouselElement = document.querySelector('#heroCarousel');
+        const carousel = new bootstrap.Carousel(carouselElement, {
+            interval: 3000,
+            ride: 'carousel'
+        });
+        
+        // Pause carousel on hover
+        carouselElement.addEventListener('mouseenter', function() {
+            carousel.pause();
+        });
+        
+        // Resume carousel on mouse leave
+        carouselElement.addEventListener('mouseleave', function() {
+            carousel.cycle();
+        });
+        
+        // Fade in elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-active');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with fade-in class
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(el => observer.observe(el));
+
+            // Stagger animation for category cards
+            const categoryCards = document.querySelectorAll('.category-card');
+            categoryCards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.10}s`;
+            });
+
+            // Stagger animation for feature items
+            const featureItems = document.querySelectorAll('.feature-item');
+            featureItems.forEach((item, index) => {
+                item.style.animationDelay = `${index * 0.1}s`;
+            });
+
+            // Stagger animation for product cards
+            const productCards = document.querySelectorAll('.product-card');
+            productCards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+
+            // Stagger animation for testimonial cards
+            const testimonialCards = document.querySelectorAll('.testimonial-card');
+            testimonialCards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.15}s`;
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(255, 248, 240, 1)';
+                navbar.style.boxShadow = '0 4px 20px rgba(139, 115, 85, 0.1)';
+            } else {
+                navbar.style.background = 'rgba(255, 248, 240, 0.95)';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
