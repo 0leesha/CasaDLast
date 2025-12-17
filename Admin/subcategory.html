@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sub Categories - CasaDLast Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --sidebar-width: 250px;
+            --navbar-height: 60px;
+            --beige: #F5EFE7;
+            --dark-beige: #E8DCC8;
+            --coffee: #8B7355;
+            --dark-coffee: #6B5744;
+            --cream: #FFF8F0;
+            --charcoal: #3E3E3E;
+            --soft-brown: #A89080;
+            --sidebar-bg: #3E3E3E;
+            --sidebar-hover: #6B5744;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--cream);
+        }
+
+        .top-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--navbar-height);
+            background: linear-gradient(135deg, var(--coffee), var(--dark-coffee));
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logo-image {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(255,255,255,0.3);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .logout-btn {
+            background-color: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .logout-btn:hover {
+            background-color: rgba(255,255,255,0.3);
+            border-color: white;
+        }
+
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: var(--navbar-height);
+            width: var(--sidebar-width);
+            height: calc(100vh - var(--navbar-height));
+            background-color: var(--sidebar-bg);
+            overflow-y: auto;
+            transition: all 0.3s;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+        }
+
+        .sidebar-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar-menu li {
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .sidebar-menu a {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px 20px;
+            color: #ecf0f1;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .sidebar-menu a:hover,
+        .sidebar-menu a.active {
+            background-color: var(--sidebar-hover);
+            color: white;
+            padding-left: 25px;
+        }
+
+        .sidebar-menu i {
+            width: 20px;
+            text-align: center;
+        }
+
+        .main-content {
+            margin-left: var(--sidebar-width);
+            margin-top: var(--navbar-height);
+            padding: 30px;
+            min-height: calc(100vh - var(--navbar-height));
+        }
+
+        .page-header {
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .page-header h1 {
+            color: var(--dark-coffee);
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        .breadcrumb {
+            background-color: transparent;
+            padding: 0;
+            margin-bottom: 0;
+        }
+
+        .content-card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        .search-filter-bar {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 10px 15px 10px 45px;
+            border: 1px solid var(--dark-beige);
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--coffee);
+            box-shadow: 0 0 0 3px rgba(139, 115, 85, 0.1);
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--soft-brown);
+        }
+
+        .filter-select {
+            padding: 10px 15px;
+            border: 1px solid var(--dark-beige);
+            border-radius: 8px;
+            min-width: 200px;
+            transition: all 0.3s;
+        }
+
+        .filter-select:focus {
+            outline: none;
+            border-color: var(--coffee);
+            box-shadow: 0 0 0 3px rgba(139, 115, 85, 0.1);
+        }
+
+        .btn-coffee {
+            background: var(--coffee);
+            border: none;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-coffee:hover {
+            background: var(--dark-coffee);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(139, 115, 85, 0.3);
+        }
+
+        .subcategories-table {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .subcategories-table thead {
+            background: var(--beige);
+        }
+
+        .subcategories-table th {
+            padding: 15px;
+            font-weight: 600;
+            color: var(--dark-coffee);
+            border: none;
+            font-size: 14px;
+        }
+
+        .subcategories-table td {
+            padding: 15px;
+            vertical-align: middle;
+            border-bottom: 1px solid var(--dark-beige);
+        }
+
+        .subcategories-table tbody tr {
+            transition: all 0.3s;
+        }
+
+        .subcategories-table tbody tr:hover {
+            background: var(--cream);
+        }
+
+        .category-badge {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            display: inline-block;
+        }
+
+        .category-badge.living {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+
+        .category-badge.bedroom {
+            background: #f3e5f5;
+            color: #6a1b9a;
+        }
+
+        .category-badge.dining {
+            background: #fff3e0;
+            color: #e65100;
+        }
+
+        .category-badge.outdoor {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .category-badge.decor {
+            background: #fce4ec;
+            color: #c2185b;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .action-btn {
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+
+        .action-btn.view {
+            background: #17a2b8;
+            color: white;
+        }
+
+        .action-btn.view:hover {
+            background: #138496;
+            transform: scale(1.1);
+        }
+
+        .action-btn.edit {
+            background: #ffc107;
+            color: white;
+        }
+
+        .action-btn.edit:hover {
+            background: #e0a800;
+            transform: scale(1.1);
+        }
+
+        .action-btn.delete {
+            background: #dc3545;
+            color: white;
+        }
+
+        .action-btn.delete:hover {
+            background: #c82333;
+            transform: scale(1.1);
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, var(--coffee), var(--dark-coffee));
+            color: white;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .modal-content {
+            border-radius: 10px;
+            border: none;
+        }
+
+        .form-label {
+            color: var(--charcoal);
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .form-control,
+        .form-select {
+            border: 1px solid var(--dark-beige);
+            border-radius: 8px;
+            padding: 10px 15px;
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+            border-color: var(--coffee);
+            box-shadow: 0 0 0 0.2rem rgba(139, 115, 85, 0.15);
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+            .main-content {
+                margin-left: 0;
+            }
+            .search-filter-bar {
+                flex-direction: column;
+            }
+            .search-box,
+            .filter-select {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Navbar -->
+    <nav class="top-navbar">
+        <div class="logo-section">
+            <img src="..\logo.jpeg" alt="CasaDLast Logo" class="logo-image">
+            <span>CasaDLast Admin</span>
+        </div>
+        <div>
+            <span class="me-3"><i class="fas fa-user-circle"></i> Admin User</span>
+            <button class="btn logout-btn" onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <ul class="sidebar-menu">
+            <li><a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
+            <li><a href="manageusers.html"><i class="fas fa-users"></i> <span>Manage Users</span></a></li>
+            <li><a href="category.html"><i class="fas fa-list"></i> <span>Categories</span></a></li>
+            <li><a href="subcategory.html" class="active"><i class="fas fa-sitemap"></i> <span>Sub Categories</span></a></li>
+            <li><a href="product.html"><i class="fas fa-couch"></i> <span>Products</span></a></li>
+            <li><a href="#"><i class="fas fa-shopping-cart"></i> <span>Orders</span></a></li>
+            <li><a href="#"><i class="fas fa-tag"></i> <span>Offers</span></a></li>
+            <li><a href="#"><i class="fas fa-truck"></i> <span>Delivery Partners</span></a></li>
+            <li><a href="#"><i class="fas fa-chart-bar"></i> <span>Reports</span></a></li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Page Header -->
+        <div class="page-header">
+            <div>
+                <h1>Sub Categories</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="dashboard.html">Home</a></li>
+                        <li class="breadcrumb-item active">Sub Categories</li>
+                    </ol>
+                </nav>
+            </div>
+            <button class="btn btn-coffee" data-bs-toggle="modal" data-bs-target="#addSubCategoryModal">
+                <i class="fas fa-plus"></i> Add Sub Category
+            </button>
+        </div>
+
+        <!-- Content Card -->
+        <div class="content-card">
+            <!-- Search & Filter Bar -->
+            <div class="search-filter-bar">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Search sub categories...">
+                </div>
+                <select class="filter-select" id="categoryFilter">
+                    <option value="">All Categories</option>
+                    <option value="living">Living Room</option>
+                    <option value="bedroom">Bedroom</option>
+                    <option value="dining">Dining Room</option>
+                    <option value="outdoor">Outdoor</option>
+                    <option value="decor">Home Decor</option>
+                </select>
+                <button class="btn btn-coffee" onclick="refreshTable()">
+                    <i class="fas fa-sync-alt"></i> Refresh
+                </button>
+            </div>
+
+            <!-- Sub Categories Table -->
+            <div class="table-responsive">
+                <table class="table subcategories-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Parent Category</th>
+                            <th>Sub Category Name</th>
+                            <th>Description</th>
+                            <th>Products</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="subCategoriesTableBody">
+                        <tr>
+                            <td>1</td>
+                            <td><span class="category-badge living">Living Room</span></td>
+                            <td>Sofas</td>
+                            <td>Our sofas hug you better than anyone else</td>
+                            <td>45</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn view" onclick="viewSubCategory(1)" title="View">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="action-btn edit" onclick="editSubCategory(1)" title="Edit">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="action-btn delete" onclick="deleteSubCategory(1)" title="Delete">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td><span class="category-badge living">Living Room</span></td>
+                            <td>Coffee Tables</td>
+                            <td>Perfect centerpiece for your living space</td>
+                            <td>32</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn view" onclick="viewSubCategory(2)" title="View">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="action-btn edit" onclick="editSubCategory(2)" title="Edit">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="action-btn delete" onclick="deleteSubCategory(2)" title="Delete">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td><span class="category-badge living">Living Room</span></td>
+                            <td>TV Units</td>
+                            <td>Modern entertainment centers</td>
+                            <td>28</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn view" onclick="viewSubCategory(3)" title="View">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="action-btn edit" onclick="editSubCategory(3)" title="Edit">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="action-btn delete" onclick="deleteSubCategory(3)" title="Delete">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td><span class="category-badge bedroom">Bedroom</span></td>
+                            <td>King Beds</td>
+                            <td>Luxurious king size beds</td>
+                            <td>22</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn view" onclick="viewSubCategory(4)" title="View">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="action-btn edit" onclick="editSubCategory(4)" title="Edit">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="action-btn delete" onclick="deleteSubCategory(4)" title="Delete">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td><span class="category-badge bedroom">Bedroom</span></td>
+                            <td>Wardrobes</td>
+                            <td>Spacious storage solutions</td>
+                            <td>18</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn view" onclick="viewSubCategory(5)" title="View">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="action-btn edit" onclick="editSubCategory(5)" title="Edit">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="action-btn delete" onclick="deleteSubCategory(5)" title="Delete">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td><span class="category-badge dining">Dining Room</span></td>
+                            <td>Dining Tables</td>
+                            <td>Where meals become memories</td>
+                            <td>25</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn view" onclick="viewSubCategory(6)" title="View">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="action-btn edit" onclick="viewSubCategory(6)" title="Edit">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="action-btn delete" onclick="deleteSubCategory(6)" title="Delete">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td><span class="category-badge outdoor">Outdoor</span></td>
+                            <td>Garden Furniture</td>
+                            <td>Comfortable outdoor seating</td>
+                            <td>15</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn view" onclick="viewSubCategory(7)" title="View">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="action-btn edit" onclick="editSubCategory(7)" title="Edit">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="action-btn delete" onclick="deleteSubCategory(7)" title="Delete">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td><span class="category-badge decor">Home Decor</span></td>
+                            <td>Wall Art</td>
+                            <td>Beautiful decorative pieces</td>
+                            <td>38</td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn view" onclick="viewSubCategory(8)" title="View">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="action-btn edit" onclick="editSubCategory(8)" title="Edit">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="action-btn delete" onclick="deleteSubCategory(8)" title="Delete">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <!-- Add Sub Category Modal -->
+    <div class="modal fade" id="addSubCategoryModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-plus-circle"></i> Add New Sub Category</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addSubCategoryForm">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Parent Category <span class="text-danger">*</span></label>
+                                <select class="form-select" required>
+                                    <option value="">Select Category</option>
+                                    <option value="living">Living Room</option>
+                                    <option value="bedroom">Bedroom</option>
+                                    <option value="dining">Dining Room</option>
+                                    <option value="outdoor">Outdoor</option>
+                                    <option value="decor">Home Decor</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Sub Category Name <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" placeholder="e.g., Sofas" required>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Description <span class="text-danger">*</span></label>
+                                <textarea class="form-control" placeholder="Enter description" rows="3" required></textarea>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Display Order</label>
+                                <input type="number" class="form-control" placeholder="1" value="1">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Status</label>
+                                <select class="form-select">
+                                    <option value="active" selected>Active</option>
+                                    <option value="inactive">Inactive</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-coffee" onclick="saveSubCategory()">
+                        <i class="fas fa-save"></i> Save Sub Category
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Search Functionality
+        document.getElementById('searchInput').addEventListener('keyup', function() {
+            const searchValue = this.value.toLowerCase();
+            const tableRows = document.querySelectorAll('#subCategoriesTableBody tr');
+            
+            tableRows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                row.style.display = text.includes(searchValue) ? '' : 'none';
+            });
+        });
+
+        // Category Filter
+        document.getElementById('categoryFilter').addEventListener('change', function() {
+            const filterValue = this.value.toLowerCase();
+            const tableRows = document.querySelectorAll('#subCategoriesTableBody tr');
+            
+            tableRows.forEach(row => {
+                if (filterValue === '') {
+                    row.style.display = '';
+                } else {
+                    const badge = row.querySelector('.category-badge');
+                    const badgeClass = badge.className;
+                    row.style.display = badgeClass.includes(filterValue) ? '' : 'none';
+                }
+            });
+        });
+
+        // View Sub Category
+        function viewSubCategory(id) {
+            alert('View sub category ' + id + ' - Will be connected to Django backend');
+        }
+
+        // Edit Sub Category
+        function editSubCategory(id) {
+            alert('Edit sub category ' + id + ' - Will be connected to Django backend');
+        }
+
+        // Delete Sub Category
+        function deleteSubCategory(id) {
+            if(confirm('Are you sure you want to delete this sub category?')) {
+                alert('Delete sub category ' + id + ' - Will be connected to Django backend');
+            }
+        }
+
+        // Save Sub Category
+        function saveSubCategory() {
+            alert('Sub category saved successfully! This will be connected to Django backend.');
+            bootstrap.Modal.getInstance(document.getElementById('addSubCategoryModal')).hide();
+        }
+
+        // Refresh Table
+        function refreshTable() {
+            alert('Refresh functionality will be connected to Django backend');
+        }
+
+        // Logout
+        function logout() {
+            if(confirm('Are you sure you want to logout?')) {
+                window.location.href = 'login.html';
+            }
+        }
+    </script>
+</body>
+</html>
