@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Furniture Categories - Cozy Haven</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css">
+    
+    <style>
+        :root {
+            --beige: #F5EFE7;
+            --dark-beige: #E8DCC8;
+            --coffee: #8B7355;
+            --dark-coffee: #6B5744;
+            --cream: #FFF8F0;
+            --charcoal: #3E3E3E;
+            --soft-brown: #A89080;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--charcoal);
+            background: var(--cream);
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(255, 248, 240, 0.95) !important;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--dark-beige);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--coffee) !important;
+        }
+
+        .nav-link {
+            color: var(--charcoal) !important;
+            padding: 0.5rem 1.5rem !important;
+        }
+
+        .nav-link:hover {
+            color: var(--coffee) !important;
+        }
+
+        .navbar-icons .btn {
+            color: var(--charcoal);
+            font-size: 1.3rem;
+            background: transparent;
+            border: none;
+        }
+
+        .badge-custom {
+            position: absolute;
+            top: -6px;
+            right: -8px;
+            background: var(--coffee);
+            font-size: 0.7rem;
+            padding: 0.25rem 0.4rem;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb-section {
+            background: white;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--dark-beige);
+        }
+
+        .breadcrumb {
+            margin: 0;
+            background: transparent;
+        }
+
+        .breadcrumb-item a {
+            color: var(--coffee);
+            text-decoration: none;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, var(--beige) 0%, var(--dark-beige) 100%);
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(139, 115, 85, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--dark-coffee);
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-header p {
+            color: var(--soft-brown);
+            font-size: 1.25rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Category Stats */
+        .category-stats {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            margin: -50px auto 3rem;
+            max-width: 900px;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 10px 40px rgba(139, 115, 85, 0.1);
+            border: 1px solid var(--dark-beige);
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--coffee);
+            font-weight: 600;
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--soft-brown);
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Sub-Category Cards */
+        .subcategory-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 1px solid var(--dark-beige);
+            height: 100%;
+            position: relative;
+        }
+
+        .subcategory-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 24px 48px rgba(139, 115, 85, 0.15);
+        }
+
+        .subcategory-image {
+            height: 280px;
+            background: linear-gradient(135deg, var(--beige) 0%, var(--dark-beige) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .subcategory-image::before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            top: -50px;
+            right: -50px;
+        }
+
+        .product-count {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: var(--coffee);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .subcategory-info {
+            padding: 2rem;
+        }
+
+        .subcategory-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            color: var(--dark-coffee);
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .subcategory-description {
+            color: var(--soft-brown);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .subcategory-link {
+            color: var(--coffee);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s ease;
+        }
+
+        .subcategory-link:hover {
+            gap: 0.75rem;
+            color: var(--dark-coffee);
+        }
+
+        .subcategory-link i {
+            transition: transform 0.3s ease;
+        }
+
+        .subcategory-card:hover .subcategory-link i {
+            transform: translateX(5px);
+        }
+
+        /* Featured Badge */
+        .featured-badge {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: #27ae60;
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        /* Section Title */
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--dark-coffee);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            color: var(--soft-brown);
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        /* Filter Buttons */
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.75rem 2rem;
+            border: 2px solid var(--dark-beige);
+            background: white;
+            color: var(--charcoal);
+            border-radius: 50px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--coffee);
+            border-color: var(--coffee);
+            color: white;
+        }
+
+        /* CTA Banner */
+        .cta-banner {
+            background: linear-gradient(135deg, var(--coffee) 0%, var(--dark-coffee) 100%);
+            border-radius: 20px;
+            padding: 4rem 3rem;
+            margin-top: 4rem;
+            color: white;
+            text-align: center;
+        }
+
+        .cta-banner h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-banner p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn-light-custom {
+            background: white;
+            color: var(--coffee);
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            font-weight: 500;
+            border: none;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-light-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            color: var(--coffee);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .cta-banner {
+                padding: 3rem 2rem;
+            }
+
+            .cta-banner h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Cozy Haven</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Collections</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                </ul>
+                <div class="navbar-icons d-flex gap-3">
+                    <button class="btn"><i class="bi bi-search"></i></button>
+                    <button class="btn position-relative">
+                        <i class="bi bi-heart"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark badge-custom">3</span>
+                    </button>
+                    <button class="btn"><i class="bi bi-person"></i></button>
+                    <button class="btn position-relative">
+                        <i class="bi bi-bag"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark badge-custom">2</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb-section">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Shop</a></li>
+                    <li class="breadcrumb-item active">Furniture</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Furniture Collection</h1>
+            <p>Explore our premium furniture categories and find the perfect pieces for your home</p>
+        </div>
+    </section>
+
+    <!-- Category Stats -->
+    <div class="container">
+        <div class="category-stats">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="stat-item">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Products Available</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stat-item">
+                        <span class="stat-number">12</span>
+                        <span class="stat-label">Categories</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="stat-item">
+                        <span class="stat-number">15K+</span>
+                        <span class="stat-label">Happy Customers</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <section class="py-5">
+        <div class="container">
+            <!-- Section Title -->
+            <h2 class="section-title">Browse by Category</h2>
+            <p class="section-subtitle">Find exactly what you're looking for</p>
+
+            <!-- Filter Buttons -->
+            <div class="filter-buttons">
+                <button class="filter-btn active">All Categories</button>
+                <button class="filter-btn">Living Room</button>
+                <button class="filter-btn">Bedroom</button>
+                <button class="filter-btn">Dining Room</button>
+                <button class="filter-btn">Office</button>
+            </div>
+
+            <!-- Sub-Categories Grid -->
+            <div class="row g-4">
+                <!-- Sofas & Couches -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="subcategory-card">
+                        <div class="subcategory-image">
+                            🛋️
+                            <div class="featured-badge">Popular</div>
+                            <div class="product-count">85 Products</div>
+                        </div>
+                        <div class="subcategory-info">
+                            <h3 class="subcategory-title">Sofas & Couches</h3>
+                            <p class="subcategory-description">
+                                Comfortable and stylish sofas, sectionals, loveseats, and sleeper sofas for your living space.
+                            </p>
+                            <a href="#" class="subcategory-link">
+                                Shop Now <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Beds & Mattresses -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="subcategory-card">
+                        <div class="subcategory-image">
+                            🛏️
+                            <div class="product-count">62 Products</div>
+                        </div>
+                        <div class="subcategory-info">
+                            <h3 class="subcategory-title">Beds & Mattresses</h3>
+                            <p class="subcategory-description">
+                                Sleep in comfort with our selection of beds, bed frames, headboards, and premium mattresses.
+                            </p>
+                            <a href="#" class="subcategory-link">
+                                Shop Now <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dining Tables -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="subcategory-card">
+                        <div class="subcategory-image">
+                            🍽️
+                            <div class="product-count">48 Products</div>
+                        </div>
+                        <div class="subcategory-info">
+                            <h3 class="subcategory-title">Dining Tables</h3>
+                            <p class="subcategory-description">
+                                Elegant dining tables, chairs, and complete dining sets for memorable family meals.
+                            </p>
+                            <a href="#" class="subcategory-link">
+                                Shop Now <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chairs & Seating -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="subcategory-card">
+                        <div class="subcategory-image">
+                            🪑
+                            <div class="featured-badge">New</div>
+                            <div class="product-count">73 Products</div>
+                        </div>
+                        <div class="subcategory-info">
+                            <h3 class="subcategory-title">Chairs & Seating</h3>
+                            <p class="subcategory-description">
+                                Office chairs, accent chairs, recliners, and ottomans for every room in your home.
+                            </p>
+                            <a href="#" class="subcategory-link">
+                                Shop Now <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Storage & Organization -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="subcategory-card">
+                        <div class="subcategory-image">
+                            🗄️
+                            <div class="product-count">56 Products</div>
+                        </div>
+                        <div class="subcategory-info">
+                            <h3 class="subcategory-title">Storage & Organization</h3>
+                            <p class="subcategory-description">
+                                Cabinets, dressers, bookcases, and shelving units to keep your home organized and tidy.
+                            </p>
+                            <a href="#" class="subcategory-link">
+                                Shop Now <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coffee & Side Tables -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="subcategory-card">
+                        <div class="subcategory-image">
+                            ☕
+                            <div class="product-count">41 Products</div>
+                        </div>
+                        <div class="subcategory-info">
+                            <h3 class="subcategory-title">Coffee & Side Tables</h3>
+                            <p class="subcategory-description">
+                                Stylish coffee tables, end tables, and console tables to complement your living space.
+                            </p>
+                            <a href="#" class="subcategory-link">
+                                Shop Now <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Desks & Office Furniture -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="subcategory-card">
+                        <div class="subcategory-image">
+                            💼
+                            <div class="product-count">38 Products</div>
+                        </div>
+                        <div class="subcategory-info">
+                            <h3 class="subcategory-title">Desks & Office</h3>
+                            <p class="subcategory-description">
+                                Create your perfect workspace with desks, office chairs, and storage solutions.
+                            </p>
+                            <a href="#" class="subcategory-link">
+                                Shop Now <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Outdoor Furniture -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="subcategory-card">
+                        <div class="subcategory-image">
+                            🌳
+                            <div class="featured-badge">Sale</div>
+                            <div class="product-count">34 Products</div>
+                        </div>
+                        <div class="subcategory-info">
+                            <h3 class="subcategory-title">Outdoor Furniture</h3>
+                            <p class="subcategory-description">
+                                Weather-resistant patio sets, outdoor seating, and garden furniture for al fresco living.
+                            </p>
+                            <a href="#" class="subcategory-link">
+                                Shop Now <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kids Furniture -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="subcategory-card">
+                        <div class="subcategory-image">
+                            🧸
+                            <div class="product-count">29 Products</div>
+                        </div>
+                        <div class="subcategory-info">
+                            <h3 class="subcategory-title">Kids Furniture</h3>
+                            <p class="subcategory-description">
+                                Fun and functional furniture designed specifically for children's rooms and play areas.
+                            </p>
+                            <a href="#" class="subcategory-link">
+                                Shop Now <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Banner -->
+            <div class="cta-banner">
+                <h2>Need Help Finding the Perfect Furniture?</h2>
+                <p>Our design experts are here to help you create your dream space</p>
+                <a href="#" class="btn-light-custom">
+                    <i class="bi bi-chat-dots me-2"></i> Get Free Consultation
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Filter buttons
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

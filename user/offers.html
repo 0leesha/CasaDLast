@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Offers - Casa D Last</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css">
+    
+    <style>
+        :root {
+            --beige: #F5EFE7;
+            --dark-beige: #E8DCC8;
+            --coffee: #8B7355;
+            --dark-coffee: #6B5744;
+            --cream: #FFF8F0;
+            --charcoal: #3E3E3E;
+            --soft-brown: #A89080;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(255, 248, 240, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--dark-beige);
+        }
+
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--coffee) !important;
+        }
+
+        .nav-link {
+            color: var(--charcoal) !important;
+            font-weight: 400;
+            transition: color 0.3s;
+            margin: 0 0.5rem;
+        }
+
+        .nav-link:hover {
+            color: var(--coffee) !important;
+        }
+
+        .navbar-icons .btn {
+            background: none;
+            border: none;
+            color: var(--charcoal);
+            font-size: 1.3rem;
+            padding: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .navbar-icons .btn:hover {
+            color: var(--coffee);
+        }
+
+        .badge-custom {
+            background: var(--coffee) !important;
+            font-size: 0.65rem;
+        }
+
+        /* Hero Banner */
+        .offers-hero {
+            background: linear-gradient(135deg, var(--coffee) 0%, var(--dark-coffee) 100%);
+            padding: 6rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .offers-hero::before {
+            content: '💎';
+            position: absolute;
+            font-size: 20rem;
+            opacity: 0.1;
+            top: -5rem;
+            right: -3rem;
+            transform: rotate(20deg);
+        }
+
+        .offers-hero::after {
+            content: '🎁';
+            position: absolute;
+            font-size: 15rem;
+            opacity: 0.1;
+            bottom: -4rem;
+            left: -2rem;
+            transform: rotate(-15deg);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .countdown-item {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .countdown-item .number {
+            font-size: 3rem;
+            font-weight: 700;
+            display: block;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .countdown-item .label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Deal Categories */
+        .deal-categories {
+            padding: 3rem 0;
+            background: white;
+        }
+
+        .category-pill {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background: var(--beige);
+            color: var(--coffee);
+            border-radius: 50px;
+            margin: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .category-pill:hover, .category-pill.active {
+            background: var(--coffee);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(139, 115, 85, 0.3);
+        }
+
+        /* Featured Deals */
+        .featured-deals {
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--dark-coffee);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            color: var(--soft-brown);
+            font-size: 1.1rem;
+        }
+
+        /* Deal Cards */
+        .deal-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--dark-beige);
+            transition: all 0.4s;
+            height: 100%;
+            position: relative;
+        }
+
+        .deal-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(139, 115, 85, 0.2);
+        }
+
+        .deal-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: #e63946;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            z-index: 2;
+            box-shadow: 0 4px 15px rgba(230, 57, 70, 0.4);
+        }
+
+        .deal-image {
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+            background: var(--beige);
+        }
+
+        .deal-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+
+        .deal-card:hover .deal-image img {
+            transform: scale(1.1);
+        }
+
+        .deal-info {
+            padding: 2rem;
+        }
+
+        .deal-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--dark-coffee);
+            margin-bottom: 0.5rem;
+        }
+
+        .deal-description {
+            color: var(--soft-brown);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .price-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .new-price {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--coffee);
+        }
+
+        .old-price {
+            font-size: 1.3rem;
+            text-decoration: line-through;
+            color: var(--soft-brown);
+        }
+
+        .savings {
+            background: #e63946;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .deal-timer {
+            background: var(--beige);
+            padding: 1rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .deal-timer .label {
+            font-size: 0.85rem;
+            color: var(--soft-brown);
+            margin-bottom: 0.5rem;
+        }
+
+        .deal-timer .time {
+            font-weight: 700;
+            color: #e63946;
+            font-size: 1.1rem;
+        }
+
+        .btn-shop-now {
+            background: var(--coffee);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 0.875rem 2rem;
+            font-weight: 600;
+            width: 100%;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .btn-shop-now:hover {
+            background: var(--dark-coffee);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(139, 115, 85, 0.4);
+        }
+
+        /* Flash Sale Section */
+        .flash-sale {
+            background: linear-gradient(135deg, #e63946 0%, #d62828 100%);
+            padding: 4rem 0;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .flash-sale::before {
+            content: '⚡';
+            position: absolute;
+            font-size: 25rem;
+            opacity: 0.1;
+            top: -6rem;
+            left: -4rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .flash-sale-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .flash-sale h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .flash-sale-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .flash-item {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s;
+        }
+
+        .flash-item:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-5px);
+        }
+
+        .flash-item .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .flash-item h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .flash-item .discount {
+            font-size: 2.5rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            background: var(--beige);
+            padding: 4rem 0;
+        }
+
+        .newsletter-content {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .newsletter h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--dark-coffee);
+            margin-bottom: 1rem;
+        }
+
+        .newsletter p {
+            color: var(--soft-brown);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: 2px solid var(--dark-beige);
+            border-radius: 50px;
+            font-size: 1rem;
+        }
+
+        .newsletter-form input:focus {
+            outline: none;
+            border-color: var(--coffee);
+        }
+
+        .newsletter-form button {
+            background: var(--coffee);
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background: var(--dark-coffee);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--beige);
+            color: var(--charcoal);
+            border-top: 1px solid var(--dark-beige);
+            padding: 3rem 0 1rem;
+        }
+
+        footer h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            color: var(--dark-coffee);
+            margin-bottom: 1.5rem;
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        footer ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        footer a {
+            color: var(--charcoal);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--coffee);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--dark-beige);
+            margin-top: 2rem;
+            padding-top: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .countdown-timer {
+                gap: 1rem;
+            }
+
+            .countdown-item {
+                padding: 1rem 1.5rem;
+            }
+
+            .countdown-item .number {
+                font-size: 2rem;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .flash-sale h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">Casa D Last</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#categories">Collections</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#offers">Offers</a></li>
+                </ul>
+                <div class="navbar-icons d-flex gap-3">
+                    <button class="btn position-relative">
+                        <i class="bi bi-search"></i>
+                    </button>
+                    <button class="btn position-relative">
+                        <i class="bi bi-person"></i>
+                    </button>
+                    <button class="btn position-relative">
+                        <i class="bi bi-bag"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark badge-custom">2</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Banner -->
+    <section class="offers-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>🔥 Exclusive Deals & Offers</h1>
+                <p>Limited time only! Save big on premium furniture and transform your home for less</p>
+                
+                <div class="countdown-timer">
+                    <div class="countdown-item">
+                        <span class="number" id="days">05</span>
+                        <span class="label">Days</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="number" id="hours">12</span>
+                        <span class="label">Hours</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="number" id="minutes">34</span>
+                        <span class="label">Minutes</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="number" id="seconds">56</span>
+                        <span class="label">Seconds</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deal Categories -->
+    <section class="deal-categories">
+        <div class="container text-center">
+            <span class="category-pill active" onclick="filterDeals('all')">All Deals</span>
+            <span class="category-pill" onclick="filterDeals('furniture')">🛋️ Furniture</span>
+            <span class="category-pill" onclick="filterDeals('decor')">🕯️ Home Decor</span>
+            <span class="category-pill" onclick="filterDeals('clearance')">💥 Clearance</span>
+            <span class="category-pill" onclick="filterDeals('bundle')">🎁 Bundle Deals</span>
+        </div>
+    </section>
+
+    <!-- Featured Deals -->
+    <section class="featured-deals">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Hot Deals This Week</h2>
+                <p class="section-subtitle">Don't miss out on these incredible savings</p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="deal-card">
+                        <div class="deal-badge">50% OFF</div>
+                        <div class="deal-image">
+                            <img src="https://via.placeholder.com/400x300/F5EFE7/8B7355?text=Luxury+Sofa" alt="Luxury Sofa">
+                        </div>
+                        <div class="deal-info">
+                            <h3>Modern Luxury Sofa Set</h3>
+                            <p class="deal-description">Premium leather with adjustable headrests and deep seating comfort</p>
+                            <div class="price-section">
+                                <span class="new-price">$1,299</span>
+                                <span class="old-price">$2,599</span>
+                                <span class="savings">Save $1,300</span>
+                            </div>
+                            <div class="deal-timer">
+                                <div class="label">⏰ Offer ends in</div>
+                                <div class="time">2 days 14 hours</div>
+                            </div>
+                            <button class="btn-shop-now">
+                                <i class="bi bi-cart-plus me-2"></i>Shop Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="deal-card">
+                        <div class="deal-badge">40% OFF</div>
+                        <div class="deal-image">
+                            <img src="https://via.placeholder.com/400x300/E8DCC8/8B7355?text=Dining+Set" alt="Dining Set">
+                        </div>
+                        <div class="deal-info">
+                            <h3>Oak Dining Table Set</h3>
+                            <p class="deal-description">Solid oak wood table with 6 cushioned chairs, perfect for family gatherings</p>
+                            <div class="price-section">
+                                <span class="new-price">$899</span>
+                                <span class="old-price">$1,499</span>
+                                <span class="savings">Save $600</span>
+                            </div>
+                            <div class="deal-timer">
+                                <div class="label">⏰ Offer ends in</div>
+                                <div class="time">3 days 8 hours</div>
+                            </div>
+                            <button class="btn-shop-now">
+                                <i class="bi bi-cart-plus me-2"></i>Shop Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="deal-card">
+                        <div class="deal-badge">60% OFF</div>
+                        <div class="deal-image">
+                            <img src="https://via.placeholder.com/400x300/F5EFE7/8B7355?text=Bedroom+Bundle" alt="Bedroom Bundle">
+                        </div>
+                        <div class="deal-info">
+                            <h3>Complete Bedroom Bundle</h3>
+                            <p class="deal-description">King bed frame, 2 nightstands, dresser & mirror - everything you need</p>
+                            <div class="price-section">
+                                <span class="new-price">$1,599</span>
+                                <span class="old-price">$3,999</span>
+                                <span class="savings">Save $2,400</span>
+                            </div>
+                            <div class="deal-timer">
+                                <div class="label">⏰ Offer ends in</div>
+                                <div class="time">1 day 22 hours</div>
+                            </div>
+                            <button class="btn-shop-now">
+                                <i class="bi bi-cart-plus me-2"></i>Shop Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="deal-card">
+                        <div class="deal-badge">35% OFF</div>
+                        <div class="deal-image">
+                            <img src="https://via.placeholder.com/400x300/E8DCC8/8B7355?text=Coffee+Table" alt="Coffee Table">
+                        </div>
+                        <div class="deal-info">
+                            <h3>Designer Coffee Table</h3>
+                            <p class="deal-description">Marble top with gold-finished metal frame, modern minimalist design</p>
+                            <div class="price-section">
+                                <span class="new-price">$325</span>
+                                <span class="old-price">$499</span>
+                                <span class="savings">Save $174</span>
+                            </div>
+                            <div class="deal-timer">
+                                <div class="label">⏰ Offer ends in</div>
+                                <div class="time">4 days 6 hours</div>
+                            </div>
+                            <button class="btn-shop-now">
+                                <i class="bi bi-cart-plus me-2"></i>Shop Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="deal-card">
+                        <div class="deal-badge">45% OFF</div>
+                        <div class="deal-image">
+                            <img src="https://via.placeholder.com/400x300/F5EFE7/8B7355?text=Bookshelf" alt="Bookshelf">
+                        </div>
+                        <div class="deal-info">
+                            <h3>Tall Bookshelf Unit</h3>
+                            <p class="deal-description">5-tier open shelving with sturdy construction, ideal for books & decor</p>
+                            <div class="price-section">
+                                <span class="new-price">$275</span>
+                                <span class="old-price">$499</span>
+                                <span class="savings">Save $224</span>
+                            </div>
+                            <div class="deal-timer">
+                                <div class="label">⏰ Offer ends in</div>
+                                <div class="time">5 days 12 hours</div>
+                            </div>
+                            <button class="btn-shop-now">
+                                <i class="bi bi-cart-plus me-2"></i>Shop Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="deal-card">
+                        <div class="deal-badge">55% OFF</div>
+                        <div class="deal-image">
+                            <img src="https://via.placeholder.com/400x300/E8DCC8/8B7355?text=Accent+Chair" alt="Accent Chair">
+                        </div>
+                        <div class="deal-info">
+                            <h3>Velvet Accent Chair</h3>
+                            <p class="deal-description">Plush velvet upholstery with gold metal legs, adds elegance to any room</p>
+                            <div class="price-section">
+                                <span class="new-price">$399</span>
+                                <span class="old-price">$899</span>
+                                <span class="savings">Save $500</span>
+                            </div>
+                            <div class="deal-timer">
+                                <div class="label">⏰ Offer ends in</div>
+                                <div class="time">2 days 18 hours</div>
+                            </div>
+                            <button class="btn-shop-now">
+                                <i class="bi bi-cart-plus me-2"></i>Shop Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flash Sale -->
+    <section class="flash-sale">
+        <div class="container">
+            <div class="flash-sale-content text-center">
+                <h2>⚡ Flash Sale - Today Only!</h2>
+                <p style="font-size: 1.2rem;">Unbelievable discounts that won't last long</p>
+                
+                <div class="flash-sale-grid">
+                    <div class="flash-item">
+                        <div class="icon">🛋️</div>
+                        <h4>All Sofas</h4>
+                        <div class="discount">UP TO 50%</div>
+                    </div>
+                    <div class="flash-item">
+                        <div class="icon">🛏️</div>
+                        <h4>Bedroom Sets</h4>
+                        <div class="discount">UP TO 60%</div>
+                    </div>
+                    <div class="flash-item">
+                        <div class="icon">🪑</div>
+                        <h4>Dining Sets</h4>
+                        <div class="discount">UP TO 45%</div>
+                    </div>
+                    <div class="flash-item">
+                        <div class="icon">💡</div>
+                        <h4>Lighting</h4>
+                        <div class="discount">UP TO 40%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- Footer -->
+    <footer class="py-5" style="background: var(--dark-coffee); color: white;">
+        <div class="container">
+            <div class="row gy-4">
+
+                <div class="col-md-4">
+                    <h4 class="mb-3" style="font-family: 'Playfair Display', serif;">Cozy Haven</h4>
+                    <p style="opacity: 0.8;">
+                        Creating warm, elegant, and timeless interiors that feel like home.
+                    </p>
+                </div>
+
+                <div class="col-md-2">
+                    <h6 class="mb-3">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white text-decoration-none">Home</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Shop</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Collections</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Blog</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3">
+                    <h6 class="mb-3">Customer Care</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white text-decoration-none">Contact Us</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Shipping & Returns</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3">
+                    <h6 class="mb-3">Follow Us</h6>
+                    <div class="d-flex gap-3 fs-5">
+                        <a href="#" class="text-white"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="bi bi-pinterest"></i></a>
+                        <a href="#" class="text-white"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-white"><i class="bi bi-twitter-x"></i></a>
+                    </div>
+                </div>
+
+            </div>
+
+            <hr class="my-4" style="border-color: rgba(255,255,255,0.2);">
+
+            <div class="text-center" style="opacity: 0.7;">
+                © 2025 Cozy Haven. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const endDate = new Date();
+            endDate.setDate(endDate.getDate() + 5);
+            endDate.setHours(endDate.getHours() + 12);
+        
+            const timer = setInterval(() => {
+                const now = new Date().getTime();
+                const distance = endDate - now;
+            
+                if (distance < 0) {
+                    clearInterval(timer);
+                    return;
+                }
+            
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+                document.getElementById('days').textContent = String(days).padStart(2, '0');
+                document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+                document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+                document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+            }, 1000);
+        }
+    
+        updateCountdown();
+    
+        // Filter Deals
+        function filterDeals(category) {
+            const pills = document.querySelectorAll('.category-pill');
+            pills.forEach(pill => {
+                pill.classList.remove('active');
+                if (pill.textContent.toLowerCase().includes(category) || category === 'all') {
+                    pill.classList.add('active');
+                }
+            });
+        
+            // In a real application, you would filter the actual deal cards here
+            console.log('Filtering by:', category);
+        }
+    
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+    </body>
+</html>
