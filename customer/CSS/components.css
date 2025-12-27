@@ -1,0 +1,114 @@
+/* Buttons */
+
+.btn-primary-custom {
+    background: var(--coffee);
+    border: none;
+    color: white;
+    padding: 1rem 3rem;
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 24px rgba(139, 115, 85, 0.2);
+}
+
+.btn-primary-custom:hover {
+    background: var(--dark-coffee);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(139, 115, 85, 0.3);
+    color: white;
+}
+
+.btn-outline-custom {
+    background: transparent;
+    border: 2px solid var(--coffee);
+    color: var(--coffee);
+    padding: 1rem 3rem;
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-custom:hover {
+    background: var(--coffee);
+    color: white;
+    border-color: var(--coffee);
+        }
+.btn-danger-custom {
+    background: transparent;
+    border: 2px solid #842029;
+    color: #842029;
+}
+
+.btn-danger-custom:hover {
+    background: #842029;
+    color: white;
+}
+/* Button animations */
+.btn-primary-custom, .btn-outline-custom {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary-custom::before, .btn-outline-custom::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn-primary-custom:hover::before, .btn-outline-custom:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+@media (max-width: 768px) {
+    
+    .btn-outline-custom {
+        margin-top: 1rem;
+        margin-left: 0;
+    }
+    
+}
+
+/* Section Headers */
+.section-header {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 600;
+    color: var(--dark-coffee);
+    margin-bottom: 1rem;
+    letter-spacing: -0.5px;
+}
+
+.section-subtitle {
+    font-size: 1rem;
+    color: var(--soft-brown);
+    font-weight: 300;
+}
+.page-header {
+            background: linear-gradient(135deg, var(--beige) 0%, var(--dark-beige) 100%);
+            padding: 3rem 0;
+            margin-bottom: 3rem;
+        }
+
+        .page-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--dark-coffee);
+        }
