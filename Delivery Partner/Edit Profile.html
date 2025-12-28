@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Delivery Dashboard</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <!-- Top Navbar -->
+        <nav class="top-navbar">
+            <div class="logo-section">
+                <div class="logo-image" style="background: linear-gradient(135deg, var(--coffee), var(--dark-coffee)); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 20px;">CD</div>
+                <span>CasaDLast Delivery</span>
+            </div>
+            <div class="user-info">
+                <span><i class="fas fa-truck"></i> Delivery Partner</span>
+                <button class="btn logout-btn" onclick="handleLogout()">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </nav>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <ul class="sidebar-menu">
+                <li>
+                    <a href="Dashboard.html" onclick="showSection('dashboard')">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Pending Orders.html" onclick="showSection('pending-orders')">
+                        <i class="fas fa-clock"></i>
+                        <span>Pending Orders</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Active Deliveries.html" onclick="showSection('active-deliveries')">
+                        <i class="fas fa-shipping-fast"></i>
+                        <span>Active Deliveries</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Completed.html" onclick="showSection('completed')">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Completed</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Earnings.html" onclick="showSection('earnings')">
+                        <i class="fas fa-wallet"></i>
+                        <span>Earnings</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="My Profile.html" class="active" onclick="showSection('profile')">
+                        <i class="fas fa-user"></i>
+                        <span>My Profile</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <div class="profile-section">
+                <h2>Edit Profile</h2>
+
+                <form id="editProfileForm">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" id="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Contact Number</label>
+                        <div style="display: flex; align-items: center;">
+                            <span style="padding: 0 10px; background: #eee; border: 1px solid #ccc; border-right: none;">+91</span>
+                            <input type="number" id="phone" maxlength="10" pattern="\d{10}" required style="flex: 1;" placeholder="Enter 10-digit number">
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-pickup">
+                            <i class="fas fa-save"></i> Save Changes
+                        </button>
+                        <a href="My Profile.html" class="btn btn-view">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </main>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="JavaScript.js"></script>
+    </body>
+</html>

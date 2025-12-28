@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Delivery Dashboard</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <!-- Top Navbar -->
+        <nav class="top-navbar">
+            <div class="logo-section">
+                <div class="logo-image" style="background: linear-gradient(135deg, var(--coffee), var(--dark-coffee)); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 20px;">CD</div>
+                <span>CasaDLast Delivery</span>
+            </div>
+            <div class="user-info">
+                <span><i class="fas fa-truck"></i> Delivery Partner</span>
+                <button class="btn logout-btn" onclick="handleLogout()">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </nav>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <ul class="sidebar-menu">
+                <li>
+                    <a href="Dashboard.html" onclick="showSection('dashboard')">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Pending Orders.html" onclick="showSection('pending-orders')">
+                        <i class="fas fa-clock"></i>
+                        <span>Pending Orders</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Active Deliveries.html" onclick="showSection('active-deliveries')">
+                        <i class="fas fa-shipping-fast"></i>
+                        <span>Active Deliveries</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Completed.html" onclick="showSection('completed')">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Completed</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Earnings.html" class="active" onclick="showSection('earnings')">
+                        <i class="fas fa-wallet"></i>
+                        <span>Earnings</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="My Profile.html" onclick="showSection('profile')">
+                        <i class="fas fa-user"></i>
+                        <span>My Profile</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+        
+        <!-- NAVBAR + SIDEBAR -->
+        <!-- COPY navbar & sidebar HTML exactly from your old file -->
+        <!-- Change sidebar links like below -->
+        <!-- DASHBOARD CONTENT -->
+        <!-- Main Content -->
+    <main class="main-content">
+        <!-- Dashboard Section -->
+        <div id="earnings-section">
+            <div class="page-header">
+                <h1><i class="fas fa-wallet"></i> Earnings Overview</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="Dashboard.html">Home</a></li>
+                        <li class="breadcrumb-item active">Earnings</li>
+                    </ol>
+                </nav>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="earnings-card">
+                <div class="earnings-header">
+                    <span class="earnings-period"><i class="fas fa-calendar-day"></i> Today's Earnings</span>
+                    <span class="earnings-amount">₹2,400</span>
+                </div>
+                <div class="earnings-breakdown">
+                    <div class="breakdown-item">
+                        <div class="breakdown-label">Deliveries</div>
+                        <div class="breakdown-value">12</div>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="breakdown-label">Per Delivery</div>
+                        <div class="breakdown-value">₹200</div>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="breakdown-label">Distance</div>
+                        <div class="breakdown-value">45 km</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="earnings-card">
+                <div class="earnings-header">
+                    <span class="earnings-period"><i class="fas fa-calendar-week"></i> This Week</span>
+                    <span class="earnings-amount">₹13,400</span>
+                </div>
+                <div class="earnings-breakdown">
+                    <div class="breakdown-item">
+                        <div class="breakdown-label">Deliveries</div>
+                        <div class="breakdown-value">67</div>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="breakdown-label">Average/Day</div>
+                        <div class="breakdown-value">₹1,914</div>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="breakdown-label">Total Distance</div>
+                        <div class="breakdown-value">252 km</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="earnings-card">
+                <div class="earnings-header">
+                    <span class="earnings-period"><i class="fas fa-calendar-alt"></i> This Month</span>
+                    <span class="earnings-amount">₹48,600</span>
+                </div>
+                <div class="earnings-breakdown">
+                    <div class="breakdown-item">
+                        <div class="breakdown-label">Deliveries</div>
+                        <div class="breakdown-value">243</div>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="breakdown-label">Average/Day</div>
+                        <div class="breakdown-value">₹1,620</div>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="breakdown-label">Bonus Earned</div>
+                        <div class="breakdown-value">₹3,200</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="orders-section">
+                <h2 class="section-title">
+                    <i class="fas fa-chart-line"></i> Earnings History
+                </h2>
+                <div style="padding: 20px; text-align: center; color: #7f8c8d;">
+                    <p>Detailed earnings breakdown and payment history will be displayed here.</p>
+                    <p style="margin-top: 10px;"><i class="fas fa-info-circle"></i> Payments are processed weekly on Fridays</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="JavaScript.js"></script>
+    
+    </body>
+</html>
