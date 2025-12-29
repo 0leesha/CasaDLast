@@ -1,0 +1,224 @@
+@import url("base.css");
+@import url("components.css");
+@import url("layout.css");
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        /* Feedback Form Section */
+        .feedback-section {
+            padding: 5rem 0;
+        }
+
+        .feedback-card {
+            background: white;
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: 0 10px 40px rgba(139, 115, 85, 0.1);
+            border: 1px solid var(--dark-beige);
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--dark-coffee);
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            font-weight: 500;
+            color: var(--charcoal);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-control, .form-select {
+            border: 2px solid var(--dark-beige);
+            border-radius: 12px;
+            padding: 0.875rem 1.25rem;
+            font-size: 1rem;
+            transition: all 0.3s;
+            background: var(--cream);
+        }
+
+        .form-control:focus, .form-select:focus {
+            border-color: var(--coffee);
+            box-shadow: 0 0 0 0.2rem rgba(139, 115, 85, 0.15);
+            background: white;
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Star Rating */
+        .star-rating {
+            display: flex;
+            gap: 0.5rem;
+            font-size: 2rem;
+            margin: 1rem 0;
+        }
+
+        .star-rating i {
+            cursor: pointer;
+            color: var(--dark-beige);
+            transition: all 0.2s;
+        }
+
+        .star-rating i:hover,
+        .star-rating i.active {
+            color: #f4b400;
+            transform: scale(1.1);
+        }
+
+        /* Emoji Rating */
+        .emoji-rating {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .emoji-option {
+            flex: 1;
+            text-align: center;
+            padding: 1.5rem 1rem;
+            border: 2px solid var(--dark-beige);
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: white;
+        }
+
+        .emoji-option:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(139, 115, 85, 0.15);
+        }
+
+        .emoji-option.active {
+            border-color: var(--coffee);
+            background: var(--beige);
+        }
+
+        .emoji-option .emoji {
+            font-size: 3rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .emoji-option .label {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--charcoal);
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 3rem;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .success-icon {
+            width: 100px;
+            height: 100px;
+            background: var(--coffee);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            animation: scaleIn 0.5s ease;
+        }
+
+        .success-icon i {
+            font-size: 3rem;
+            color: white;
+        }
+
+        
+        /* Testimonials */
+        .testimonials-section {
+            background: white;
+            padding: 5rem 0;
+            border-top: 1px solid var(--dark-beige);
+        }
+
+        .testimonial-card {
+            background: var(--cream);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid var(--dark-beige);
+            height: 100%;
+        }
+
+        .testimonial-card .stars {
+            color: #f4b400;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-card .quote {
+            font-style: italic;
+            color: var(--charcoal);
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-card .author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .testimonial-card .avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--coffee);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .testimonial-card .author-info h5 {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .testimonial-card .author-info p {
+            margin: 0;
+            font-size: 0.85rem;
+            color: var(--soft-brown);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            
+
+            .feedback-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .emoji-rating {
+                flex-wrap: wrap;
+            }
+
+            .emoji-option {
+                flex: 0 0 calc(50% - 0.5rem);
+            }
+
+            .emoji-option .emoji {
+                font-size: 2rem;
+            }
+        }

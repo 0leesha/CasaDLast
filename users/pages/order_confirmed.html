@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation - Casa D Last</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/order_confirmed.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"> 
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+</head>
+<body>
+    <div id="navbar"></div>
+
+    <div class="confirmation-container">
+        <div class="container">
+            <!-- Success Banner -->
+            <div class="success-banner">
+                <div class="success-icon">
+                    <i class="bi bi-check-circle"></i>
+                </div>
+                <h1 class="success-title">Order Confirmed!</h1>
+                <p class="success-subtitle">Thank you for your purchase. Your order has been successfully placed.</p>
+                <div class="order-number">
+                    <i class="bi bi-receipt"></i> Order #ORD-2024-0128
+                </div>
+            </div>
+
+            <!-- Order Details -->
+            <div class="order-details-card">
+                <h2 class="section-title">Order Details</h2>
+                
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label">Order Date</div>
+                        <div class="info-value">December 27, 2024</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Estimated Delivery</div>
+                        <div class="info-value">January 3-5, 2025</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Payment Method</div>
+                        <div class="info-value">UPI</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Shipping Address</div>
+                        <div class="info-value">123 Main Street, Ahmedabad</div>
+                    </div>
+                </div>
+
+                <h3 class="section-title">Items Ordered</h3>
+
+                <div class="order-item">
+                    <img src="https://via.placeholder.com/80x80/F5EFE7/8B7355?text=1" alt="Product" class="item-image">
+                    <div class="item-details">
+                        <div class="item-name">Classic Leather Sofa</div>
+                        <div class="item-meta">Color: Brown | Size: 3-Seater</div>
+                        <div class="item-meta">Quantity: 1</div>
+                    </div>
+                    <div class="item-price">$1,299</div>
+                </div>
+
+                <div class="order-item">
+                    <img src="https://via.placeholder.com/80x80/E8DCC8/8B7355?text=2" alt="Product" class="item-image">
+                    <div class="item-details">
+                        <div class="item-name">Oak Coffee Table</div>
+                        <div class="item-meta">Color: Natural Oak</div>
+                        <div class="item-meta">Quantity: 1</div>
+                    </div>
+                    <div class="item-price">$499</div>
+                </div>
+
+                <div class="order-item">
+                    <img src="https://via.placeholder.com/80x80/F5EFE7/8B7355?text=3" alt="Product" class="item-image">
+                    <div class="item-details">
+                        <div class="item-name">Modern Table Lamp</div>
+                        <div class="item-meta">Color: White</div>
+                        <div class="item-meta">Quantity: 1</div>
+                    </div>
+                    <div class="item-price">$149</div>
+                </div>
+
+                <!-- Order Summary -->
+                <div class="order-summary">
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span class="amount">$1,947</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Shipping</span>
+                        <span class="amount">Free</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Tax</span>
+                        <span class="amount">$195</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total Paid</span>
+                        <span class="amount">$2,142</span>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <a href="track_order.html" class="btn-custom btn-outline-custom">
+                        <i class="bi bi-truck"></i> Track Order
+                    </a>
+                    <a href="#" class="btn-custom btn-outline-custom">
+                        <i class="bi bi-download"></i> Download Invoice
+                    </a>
+                    <a href="index.html" class="btn-custom btn-outline-custom">
+                        <i class="bi bi-house"></i> Continue Shopping
+                    </a>
+                </div>
+            </div>
+
+            <!-- Next Steps -->
+            <div class="next-steps">
+                <h2 class="section-title">What Happens Next?</h2>
+
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Order Confirmation Email</h4>
+                        <p>We've sent a confirmation email to sarah.j@email.com with your order details and receipt.</p>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Order Processing</h4>
+                        <p>Your items are being prepared and will be shipped within 1-2 business days.</p>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>Shipping Notification</h4>
+                        <p>Once your order ships, we'll send you a tracking number to monitor your delivery.</p>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h4>Delivery & Enjoy</h4>
+                        <p>Your order will be delivered to your doorstep. Our team will ensure safe delivery.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Support Info -->
+            <div class="text-center mt-4" style="color: var(--soft-brown);">
+                <p>
+                    <i class="bi bi-headset"></i> Need help? 
+                    <a href="#" style="color: var(--coffee); text-decoration: none; font-weight: 600;">Contact Support</a> 
+                    or call <a href="tel:+919876543210" style="color: var(--coffee); text-decoration: none; font-weight: 600;">+91 98765 43210</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer"></div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../JS/common.js"></script><script>
+        // Print invoice
+        document.querySelector('.btn-outline-custom:nth-child(2)').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.print();
+        });
+    </script>
+</body>
+</html>

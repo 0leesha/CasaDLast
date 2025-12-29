@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Orders - Casa D Last</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/orders.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    
+</head>
+<body>
+    <div id="navbar"></div>
+    <div class="page-header">
+        <div class="container">
+            <h1 class="page-title">My Orders</h1>
+        </div>
+    </div>
+
+    <div class="orders-container">
+        <div class="container">
+            <div class="filter-tabs">
+                <div class="tab-buttons">
+                    <button class="tab-btn active">All Orders</button>
+                    <button class="tab-btn">Processing</button>
+                    <button class="tab-btn">Shipped</button>
+                    <button class="tab-btn">Delivered</button>
+                    <button class="tab-btn">Cancelled</button>
+                </div>
+                <div class="search-box">
+                    <input type="text" placeholder="Search orders...">
+                    <i class="bi bi-search"></i>
+                </div>
+            </div>
+
+            <!-- Order 1 -->
+            <div class="order-card">
+                <div class="order-header">
+                    <div>
+                        <div class="order-number">Order #ORD-2024-0128</div>
+                        <div class="order-date">Placed on December 15, 2024</div>
+                    </div>
+                    <span class="status-badge status-shipped">Shipped</span>
+                </div>
+                <div class="order-items">
+                    <img src="https://via.placeholder.com/80x80/F5EFE7/8B7355?text=1" alt="Product" class="order-item-img">
+                    <img src="https://via.placeholder.com/80x80/E8DCC8/8B7355?text=2" alt="Product" class="order-item-img">
+                    <img src="https://via.placeholder.com/80x80/F5EFE7/8B7355?text=3" alt="Product" class="order-item-img">
+                </div>
+                <div class="order-footer">
+                    <div class="order-total">$1,947</div>
+                    <div class="order-actions">
+                        <a href="track_order.html" class="btn-custom btn-primary-custom">Track Order</a>
+                        <a href="#" class="btn-custom btn-outline-custom">View Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Order 2 -->
+            <div class="order-card">
+                <div class="order-header">
+                    <div>
+                        <div class="order-number">Order #ORD-2024-0115</div>
+                        <div class="order-date">Placed on November 28, 2024</div>
+                    </div>
+                    <span class="status-badge status-delivered">Delivered</span>
+                </div>
+                <div class="order-items">
+                    <img src="https://via.placeholder.com/80x80/F5EFE7/8B7355?text=1" alt="Product" class="order-item-img">
+                    <img src="https://via.placeholder.com/80x80/E8DCC8/8B7355?text=2" alt="Product" class="order-item-img">
+                </div>
+                <div class="order-footer">
+                    <div class="order-total">$649</div>
+                    <div class="order-actions">
+                        <a href="#" class="btn-custom btn-primary-custom">Write Review</a>
+                        <a href="#" class="btn-custom btn-outline-custom">View Details</a>
+                        <a href="#" class="btn-custom btn-outline-custom">Reorder</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Order 3 -->
+            <div class="order-card">
+                <div class="order-header">
+                    <div>
+                        <div class="order-number">Order #ORD-2024-0098</div>
+                        <div class="order-date">Placed on November 10, 2024</div>
+                    </div>
+                    <span class="status-badge status-processing">Processing</span>
+                </div>
+                <div class="order-items">
+                    <img src="https://via.placeholder.com/80x80/F5EFE7/8B7355?text=1" alt="Product" class="order-item-img">
+                </div>
+                <div class="order-footer">
+                    <div class="order-total">$299</div>
+                    <div class="order-actions">
+                        <a href="#" class="btn-custom btn-outline-custom">View Details</a>
+                        <a href="#" class="btn-custom btn-outline-custom">Cancel Order</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Order 4 -->
+            <div class="order-card">
+                <div class="order-header">
+                    <div>
+                        <div class="order-number">Order #ORD-2024-0087</div>
+                        <div class="order-date">Placed on October 22, 2024</div>
+                    </div>
+                    <span class="status-badge status-delivered">Delivered</span>
+                </div>
+                <div class="order-items">
+                    <img src="https://via.placeholder.com/80x80/E8DCC8/8B7355?text=1" alt="Product" class="order-item-img">
+                    <img src="https://via.placeholder.com/80x80/F5EFE7/8B7355?text=2" alt="Product" class="order-item-img">
+                    <img src="https://via.placeholder.com/80x80/E8DCC8/8B7355?text=3" alt="Product" class="order-item-img">
+                    <div style="width: 80px; height: 80px; background: var(--beige); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 600; color: var(--coffee); border: 2px solid var(--dark-beige);">+2</div>
+                </div>
+                <div class="order-footer">
+                    <div class="order-total">$2,345</div>
+                    <div class="order-actions">
+                        <a href="#" class="btn-custom btn-outline-custom">View Details</a>
+                        <a href="#" class="btn-custom btn-outline-custom">Reorder</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <nav>
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div id="footer"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../JS/common.js"></script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Dashboard - Casa D Last</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/user_dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <div id="navbar"></div>
+    <!-- Dashboard Container -->
+    <div class="dashboard-container">
+        <div class="container">
+            <div class="row">
+                <!-- Sidebar -->
+                <div class="col-lg-3">
+                    <div class="dashboard-sidebar">
+                        <div class="user-profile">
+                            <div class="user-avatar">
+                                <i class="bi bi-person-circle"></i>
+                            </div>
+                            <h5>Sarah Johnson</h5>
+                            <p>sarah.j@email.com</p>
+                        </div>
+                        <ul class="dashboard-menu">
+                            <li><a href="#" class="active"><i class="bi bi-grid"></i> Dashboard</a></li>
+                            <li><a href="orders.html"><i class="bi bi-box-seam"></i> My Orders</a></li>
+                            <li><a href="reviews.html"><i class="bi bi-star"></i> My Reviews</a></li>
+                            <li><a href="address.html"><i class="bi bi-geo-alt"></i> Addresses</a></li>
+                            <li><a href="profile.html"><i class="bi bi-person"></i> Profile</a></li>
+                            <li><a href="profile.html"><i class="bi bi-lock"></i> Change Password</a></li>
+                            <li><a href="#"><i class="bi bi-box-arrow-right"></i> Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Main Content -->
+                <div class="col-lg-9">
+                    <div class="dashboard-content">
+                        <!-- Welcome Banner -->
+                        <div class="welcome-banner">
+                            <h2>Welcome back, Sarah! 👋</h2>
+                            <p>Here's what's happening with your account today</p>
+                        </div>
+
+                        <!-- Stats Cards -->
+                       
+                        <div class="row mb-4">
+                            <div class="col-md-6 col-sm-6 mb-3">
+                                <div class="stats-card">
+                                    <div class="stats-icon">
+                                        <i class="bi bi-box-seam"></i>
+                                    </div>
+                                    <h3>12</h3>
+                                    <p>Total Orders</p>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6 col-sm-6 mb-3">
+                                
+                                <div class="stats-card">
+                                    <div class="stats-icon">
+                                        <i class="bi bi-clock-history"></i>
+                                    </div>
+                                    <h3>3</h3>
+                                    <p>Active Orders</p>
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+                      
+                        <!-- Quick Actions -->
+                        <h3 class="section-title">Quick Actions</h3>
+                        <div class="row mb-4">
+                            <div class="col-md-4 col-sm-6 mb-3">
+                                <a href="track_order.html" class="quick-action-card">
+                                    <div class="quick-action-icon"><i class="bi bi-truck"></i></div>
+                                    <h6>Track Order</h6>
+                                    <p>Check delivery status</p>
+                                </a>
+                            </div>
+                            <div class="col-md-4 col-sm-6 mb-3">
+                                <a href="profile.html" class="quick-action-card">
+                                    <div class="quick-action-icon"><i class="bi bi-person-gear"></i></div>
+                                    <h6>Update Profile</h6>
+                                    <p>Edit your details</p>
+                                </a>
+                            </div>
+                            <div class="col-md-4 col-sm-6 mb-3">
+                                <a href="support.html" class="quick-action-card">
+                                    <div class="quick-action-icon"><i class="bi bi-headset"></i></div>
+                                    <h6>Support</h6>
+                                    <p>Get help</p>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Recent Orders -->
+                        <h3 class="section-title">Recent Orders</h3>
+                        
+                        <!-- Order 1 -->
+                        <div class="order-card">
+                            <div class="order-header">
+                                <div>
+                                    <div class="order-number">Order #ORD-2024-0128</div>
+                                    <div class="order-date">Placed on December 15, 2024</div>
+                                </div>
+                                <span class="order-status status-shipped">Shipped</span>
+                            </div>
+                            <div class="order-items">
+                                <img src="https://via.placeholder.com/60x60/F5EFE7/8B7355?text=Item" alt="Product" class="order-item-img">
+                                <img src="https://via.placeholder.com/60x60/E8DCC8/8B7355?text=Item" alt="Product" class="order-item-img">
+                                <div class="d-flex align-items-center justify-content-center" style="width: 60px; height: 60px; background: var(--beige); border-radius: 8px; font-weight: 600; color: var(--coffee);">+1</div>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                                <div class="order-total">$1,847.00</div>
+                                <div class="order-actions">
+                                    <button class="btn btn-custom btn-primary-custom">Track Order</button>
+                                    <button class="btn btn-custom btn-outline-custom">View Details</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Order 2 -->
+                        <div class="order-card">
+                            <div class="order-header">
+                                <div>
+                                    <div class="order-number">Order #ORD-2024-0115</div>
+                                    <div class="order-date">Placed on November 28, 2024</div>
+                                </div>
+                                <span class="order-status status-delivered">Delivered</span>
+                            </div>
+                            <div class="order-items">
+                                <img src="https://via.placeholder.com/60x60/F5EFE7/8B7355?text=Item" alt="Product" class="order-item-img">
+                                <img src="https://via.placeholder.com/60x60/E8DCC8/8B7355?text=Item" alt="Product" class="order-item-img">
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                                <div class="order-total">$649.00</div>
+                                <div class="order-actions">
+                                    <button class="btn btn-custom btn-primary-custom">Write Review</button>
+                                    <button class="btn btn-custom btn-outline-custom">View Details</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Order 3 -->
+                        <div class="order-card">
+                            <div class="order-header">
+                                <div>
+                                    <div class="order-number">Order #ORD-2024-0098</div>
+                                    <div class="order-date">Placed on November 10, 2024</div>
+                                </div>
+                                <span class="order-status status-processing">Processing</span>
+                            </div>
+                            <div class="order-items">
+                                <img src="https://via.placeholder.com/60x60/F5EFE7/8B7355?text=Item" alt="Product" class="order-item-img">
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                                <div class="order-total">$299.00</div>
+                                <div class="order-actions">
+                                    <button class="btn btn-custom btn-outline-custom">Details</button>
+                                    <a href="invoice.html" class="btn btn-custom btn-outline-custom">Download invoice</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <a href="orders.html" role="button" class="btn btn-custom btn-outline-custom">View All Orders</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../JS/common.js"></script>
+</body>
+</html>

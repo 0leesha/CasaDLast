@@ -1,0 +1,124 @@
+@import url("base.css");
+@import url("components.css");
+@import url("layout.css");
+        .page-header {
+            background: linear-gradient(135deg, var(--beige) 0%, var(--dark-beige) 100%);
+            padding: 3rem 0;
+            margin-bottom: 3rem;
+        }
+
+        .page-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--dark-coffee);
+        }
+
+        .addresses-container {
+            padding-bottom: 4rem;
+        }
+
+        .add-address-btn {
+            background: var(--coffee);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            border: 2px dashed var(--coffee);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            margin-bottom: 2rem;
+        }
+
+        .add-address-btn:hover {
+            background: var(--dark-coffee);
+            border-color: var(--dark-coffee);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .add-address-btn i {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .address-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 20px rgba(139, 115, 85, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .address-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 28px rgba(139, 115, 85, 0.15);
+        }
+
+        .address-card.default {
+            border: 2px solid var(--coffee);
+        }
+
+        .default-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--coffee);
+            color: white;
+            padding: 0.375rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .address-type {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            color: var(--dark-coffee);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .address-type i {
+            font-size: 1.5rem;
+            color: var(--coffee);
+        }
+
+        .address-details {
+            color: var(--charcoal);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .address-details strong {
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .address-actions {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .address-card {
+                padding: 1.5rem;
+            }
+
+            .default-badge {
+                position: static;
+                display: inline-block;
+                margin-bottom: 1rem;
+            }
+        }

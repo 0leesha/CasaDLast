@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Casa D Last</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/cart.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"> 
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    
+</head>
+<body>
+    <div id="navbar"></div>
+
+    <div class="page-hero">
+        <div class="container page-hero-content fade-in">
+            <h1 class="page-title">Shopping Cart (3 items)</h1>
+        </div>
+    </div>
+
+    <div class="cart-container">
+        <div class="container">
+            <div class="row">
+                <!-- Cart Items -->
+                <div class="col-lg-8">
+                    <div class="cart-items">
+                        <!-- Item 1 -->
+                        <div class="cart-item">
+                            <img src="https://via.placeholder.com/120x120/F5EFE7/8B7355?text=Sofa" alt="Product" class="item-image">
+                            <div class="item-details">
+                                <div class="item-name">Classic Leather Sofa</div>
+                                <div class="item-meta">Color: Brown | Size: 3-Seater</div>
+                                <div class="item-stock">✓ In Stock</div>
+                                <div class="item-actions mt-3">
+                                    <div class="quantity-control">
+                                        <button class="quantity-btn" onclick="updateQuantity(this, -1)">-</button>
+                                        <input type="number" class="quantity-input" value="1" min="1" max="10" readonly>
+                                        <button class="quantity-btn" onclick="updateQuantity(this, 1)">+</button>
+                                    </div>
+                                    <a href="#" class="item-remove">
+                                        <i class="bi bi-trash"></i> Remove
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="item-price-section">
+                                <div class="item-price">$1,299</div>
+                            </div>
+                        </div>
+
+                        <!-- Item 2 -->
+                        <div class="cart-item">
+                            <img src="https://via.placeholder.com/120x120/E8DCC8/8B7355?text=Table" alt="Product" class="item-image">
+                            <div class="item-details">
+                                <div class="item-name">Oak Coffee Table</div>
+                                <div class="item-meta">Color: Natural Oak</div>
+                                <div class="item-stock">✓ In Stock</div>
+                                <div class="item-actions mt-3">
+                                    <div class="quantity-control">
+                                        <button class="quantity-btn" onclick="updateQuantity(this, -1)">-</button>
+                                        <input type="number" class="quantity-input" value="1" min="1" max="10" readonly>
+                                        <button class="quantity-btn" onclick="updateQuantity(this, 1)">+</button>
+                                    </div>
+                                    <a href="#" class="item-remove">
+                                        <i class="bi bi-trash"></i> Remove
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="item-price-section">
+                                <div class="item-price">$499</div>
+                            </div>
+                        </div>
+
+                        <!-- Item 3 -->
+                        <div class="cart-item">
+                            <img src="https://via.placeholder.com/120x120/F5EFE7/8B7355?text=Lamp" alt="Product" class="item-image">
+                            <div class="item-details">
+                                <div class="item-name">Modern Table Lamp</div>
+                                <div class="item-meta">Color: White</div>
+                                <div class="item-stock">✓ In Stock</div>
+                                <div class="item-actions mt-3">
+                                    <div class="quantity-control">
+                                        <button class="quantity-btn" onclick="updateQuantity(this, -1)">-</button>
+                                        <input type="number" class="quantity-input" value="1" min="1" max="10" readonly>
+                                        <button class="quantity-btn" onclick="updateQuantity(this, 1)">+</button>
+                                    </div>
+                                    <a href="#" class="item-remove">
+                                        <i class="bi bi-trash"></i> Remove
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="item-price-section">
+                                <div class="item-price">$149</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="continue-shopping">
+                        <a href="index.html">
+                            <i class="bi bi-arrow-left"></i> Continue Shopping
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Cart Summary -->
+                <div class="col-lg-4">
+                    <div class="cart-summary">
+                        <h3 class="summary-title">Order Summary</h3>
+                        <div class="summary-row">
+                            <span>Subtotal</span>
+                            <span class="amount">$1,947</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Shipping</span>
+                            <span class="amount" style="color: var(--soft-brown);">Calculated at checkout</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Tax</span>
+                            <span class="amount">$195</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Total</span>
+                            <span class="amount">$2,142</span>
+                        </div>
+
+                        <a href="checkout.html" class="btn btn-custom btn-primary-custom mt-3" role="button">
+                            Proceed to Checkout <i class="bi bi-arrow-right"></i>
+                        </a>
+
+                        <div class="text-center mt-3">
+                            <small style="color: var(--soft-brown);">
+                                <i class="bi bi-shield-check"></i> Secure Checkout
+                            </small>
+                        </div>
+
+                        <div class="text-center mt-3" style="padding-top: 1rem; border-top: 1px solid var(--dark-beige);">
+                            <small style="color: var(--soft-brown);">
+                                <i class="bi bi-truck"></i> Free shipping on orders over $500<br>
+                                <i class="bi bi-arrow-return-left"></i> 30-day easy returns
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer"></div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../JS/common.js"></script>
+    <script>
+        function updateQuantity(button, change) {
+            const input = button.parentElement.querySelector('.quantity-input');
+            let value = parseInt(input.value) + change;
+            
+            if (value < 1) value = 1;
+            if (value > 10) value = 10;
+            
+            input.value = value;
+        }
+
+        // Remove item
+        document.querySelectorAll('.item-remove').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (confirm('Remove this item from cart?')) {
+                    this.closest('.cart-item').remove();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - Casa D Last</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/payment.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"> 
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+</head>
+<body>
+    <div id="navbar"></div>
+
+    <div class="page-hero">
+        <div class="page-hero-content fade-in">
+            <h1 >Payment</h1>
+        </div>
+    </div>
+
+    <div class="payment-container">
+        <div class="container">
+            <!-- Progress Steps -->
+            <div class="checkout-steps">
+                <div class="steps">
+                    <div class="step completed">
+                        <div class="step-number">
+                            <i class="bi bi-check-lg"></i>
+                        </div>
+                        <div class="step-label">Cart</div>
+                    </div>
+                    <div class="step completed">
+                        <div class="step-number">
+                            <i class="bi bi-check-lg"></i>
+                        </div>
+                        <div class="step-label">Shipping</div>
+                    </div>
+                    <div class="step active">
+                        <div class="step-number">3</div>
+                        <div class="step-label">Payment</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-label">Confirmation</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Left Column - Payment Methods -->
+                <div class="col-lg-7">
+                    <div class="payment-section">
+                        <h3 class="section-title">Select Payment Method</h3>
+
+                        
+                        <!-- UPI -->
+                        <div class="payment-method">
+                            <div class="payment-method-header">
+                                <input type="radio" name="payment">
+                                <div class="payment-icon">
+                                    <i class="bi bi-phone"></i>
+                                </div>
+                                <div>
+                                    <div class="payment-title">UPI</div>
+                                    <p class="payment-description">Pay using PhonePe, Google Pay, Paytm & more</p>
+                                </div>
+                            </div>
+                            
+                            <div class="payment-details">
+                                <div class="mb-3">
+                                    <label class="form-label">UPI ID</label>
+                                    <input type="text" class="form-control" placeholder="yourname@upi">
+                                </div>
+                                <button class="btn btn-custom btn-primary-custom">Verify UPI ID</button>
+                            </div>
+                        </div>
+
+                        
+                        <!-- Cash on Delivery -->
+                        <div class="payment-method">
+                            <div class="payment-method-header">
+                                <input type="radio" name="payment">
+                                <div class="payment-icon">
+                                    <i class="bi bi-cash-coin"></i>
+                                </div>
+                                <div>
+                                    <div class="payment-title">Cash on Delivery</div>
+                                    <p class="payment-description">Pay when you receive the order</p>
+                                </div>
+                            </div>
+                            
+                            <div class="payment-details">
+                                <div class="alert" style="background: #fff3cd; color: #856404; border: none; border-radius: 8px;">
+                                    <i class="bi bi-info-circle"></i> COD charges of $5 will be added to your order
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column - Order Summary -->
+                <div class="col-lg-5">
+                    <div class="order-summary">
+                        <h3 class="summary-title">Order Summary</h3>
+
+                        <div class="summary-row">
+                            <span>Subtotal (3 items)</span>
+                            <span class="amount">$1,947</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Shipping</span>
+                            <span class="amount">Free</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Tax</span>
+                            <span class="amount">$195</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Total</span>
+                            <span class="amount">$2,142</span>
+                        </div>
+
+                        <button class="btn btn-custom btn-primary-custom mt-3">
+                            Place Order <i class="bi bi-check-circle"></i>
+                        </button>
+
+                        <div class="security-badges">
+                            <div class="security-badge">
+                                <i class="bi bi-shield-check"></i>
+                                <div>Secure Payment</div>
+                            </div>
+                            <div class="security-badge">
+                                <i class="bi bi-lock"></i>
+                                <div>SSL Encrypted</div>
+                            </div>
+                            <div class="security-badge">
+                                <i class="bi bi-award"></i>
+                                <div>Money Back</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer"></div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../JS/common.js"></script><script>
+        // Payment method selection
+        document.querySelectorAll('.payment-method').forEach(method => {
+            method.addEventListener('click', function(e) {
+                // Don't toggle if clicking on input fields
+                if (e.target.tagName === 'INPUT' && e.target.type !== 'radio') {
+                    return;
+                }
+                
+                document.querySelectorAll('.payment-method').forEach(m => m.classList.remove('selected'));
+                this.classList.add('selected');
+                this.querySelector('input[type="radio"]').checked = true;
+            });
+        });
+
+        // Card number formatting
+        const cardInput = document.querySelector('input[placeholder="1234 5678 9012 3456"]');
+        if (cardInput) {
+            cardInput.addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\s/g, '');
+                let formattedValue = value.match(/.{1,4}/g)?.join(' ') || value;
+                e.target.value = formattedValue;
+            });
+        }
+
+        // Expiry date formatting
+        const expiryInput = document.querySelector('input[placeholder="MM/YY"]');
+        if (expiryInput) {
+            expiryInput.addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length >= 2) {
+                    value = value.slice(0, 2) + '/' + value.slice(2, 4);
+                }
+                e.target.value = value;
+            });
+        }
+    </script>
+</body>
+</html>
