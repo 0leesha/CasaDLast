@@ -1,0 +1,110 @@
+:root {
+    --coffee: #8B7355;
+    --dark-coffee: #6B5744;
+    --cream: #FFF8F0;
+    --dark-beige: #E8DCC8;
+    --soft-brown: #A89080;
+    --charcoal: #3E3E3E;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+}
+
+/* Navbar */
+.navbar {
+    background: rgba(255, 248, 240, 0.95);
+    border-bottom: 1px solid var(--dark-beige);
+    padding: 1rem 0;
+}
+
+.navbar-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--coffee);
+    font-weight: 600;
+}
+
+.nav-link {
+    color: var(--charcoal);
+    padding: 0.5rem 1.5rem;
+}
+
+.nav-link:hover {
+    color: var(--coffee);
+}
+
+.navbar-icons .btn {
+    border: none;
+    background: transparent;
+    font-size: 1.2rem;
+}
+
+/* Auth Section */
+.page-content {
+    padding-top: 140px;
+    padding-bottom: 80px;
+    min-height: 100vh;
+}
+
+.auth-card {
+    background: white;
+    border-radius: 24px;
+    padding: 40px;
+    max-width: 450px;
+    margin: auto;
+    border: 1px solid var(--dark-beige);
+    box-shadow: 0 10px 30px rgba(139,115,85,0.08);
+}
+
+.nav-tabs-custom {
+    background: #F0E6D8;
+    padding: 5px;
+    border-radius: 50px;
+    margin-bottom: 30px;
+    border: none;
+}
+
+.nav-tabs-custom .nav-link {
+    border: none;
+    border-radius: 50px;
+    color: var(--soft-brown);
+    padding: 10px 30px;
+}
+
+.nav-tabs-custom .nav-link.active {
+    background: var(--coffee);
+    color: white;
+}
+
+.form-control-custom {
+    background: var(--cream);
+    border: 1px solid var(--dark-beige);
+    border-radius: 12px;
+    padding: 12px 16px;
+}
+
+.form-control-custom:focus {
+    border-color: var(--coffee);
+    box-shadow: 0 0 0 3px rgba(139,115,85,0.15);
+}
+
+.btn-primary-custom {
+    background: var(--coffee);
+    border: none;
+    color: white;
+    padding: 12px;
+    border-radius: 50px;
+    width: 100%;
+}
+
+.btn-primary-custom:hover {
+    background: var(--dark-coffee);
+}
+
+.text-coffee {
+    color: var(--coffee);
+    text-decoration: none;
+}
