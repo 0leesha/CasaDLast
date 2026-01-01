@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Casa D Last</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="Authentication.css">
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">Casa D Last</a>
+
+        <div class="collapse navbar-collapse show">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Shop</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Collections</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+            </ul>
+
+            <div class="navbar-icons">
+                <button class="btn"><i class="bi bi-search"></i></button>
+                <button class="btn"><i class="bi bi-person"></i></button>
+                <button class="btn position-relative">
+                    <i class="bi bi-cart3"></i>
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary">2</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Login Section -->
+<section class="page-content">
+    <div class="container">
+        <div class="auth-card text-center">
+
+            <h2 class="fw-bold mb-2">Welcome Back</h2>
+            <p class="text-muted mb-4">Join our community of design enthusiasts</p>
+
+            <ul class="nav nav-tabs nav-tabs-custom justify-content-center">
+                <li class="nav-item flex-fill">
+                    <button class="nav-link active w-100" data-bs-toggle="tab" data-bs-target="#login">Login</button>
+                </li>
+                <li class="nav-item flex-fill">
+                    <button class="nav-link w-100" data-bs-toggle="tab" data-bs-target="#signup">Sign Up</button>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+                <!-- Login -->
+                <div class="tab-pane fade show active" id="login">
+                    <form>
+                        <div class="mb-4 text-start">
+                            <label class="fw-bold small">Email Address</label>
+                            <input type="email" class="form-control form-control-custom" placeholder="name@example.com">
+                        </div>
+
+                        <div class="mb-3 text-start">
+                            <label class="fw-bold small">Password</label>
+                            <input type="password" class="form-control form-control-custom">
+                        </div>
+
+                        <div class="text-end mb-4">
+                            <a href="#" class="text-coffee small">Forgot password?</a>
+                        </div>
+
+                        <button class="btn btn-primary-custom">Login</button>
+                    </form>
+                </div>
+
+                <!-- Signup -->
+                <div class="tab-pane fade" id="signup">
+                    <form>
+                        <div class="mb-4 text-start">
+                            <label class="fw-bold small">Full Name</label>
+                            <input type="text" class="form-control form-control-custom" placeholder="John Doe">
+                        </div>
+
+                        <div class="mb-4 text-start">
+                            <label class="fw-bold small">Email Address</label>
+                            <input type="email" class="form-control form-control-custom" placeholder="name@example.com">
+                        </div>
+
+                        <div class="mb-4 text-start">
+                            <label class="fw-bold small">Create Password</label>
+                            <input type="password" class="form-control form-control-custom">
+                        </div>
+
+                        <button class="btn btn-primary-custom">Create Account</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Bootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
