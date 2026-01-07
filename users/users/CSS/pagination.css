@@ -1,0 +1,30 @@
+/* Pagination */
+.pagination-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.pagination {
+    gap: 0.5rem;
+}
+
+.page-link {
+    border: 1px solid var(--dark-beige);
+    color: var(--charcoal);
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+}
+
+.page-link:hover {
+    background: var(--coffee);
+    border-color: var(--coffee);
+    color: white;
+}
+
+.page-item.active .page-link {
+    background: var(--coffee);
+    border-color: var(--coffee);
+    color: white;
+}

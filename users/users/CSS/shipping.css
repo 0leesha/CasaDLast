@@ -1,0 +1,88 @@
+
+@import url("base.css");
+@import url("components.css");
+@import url("layout.css");
+.shipping-step {
+    background: white;
+    border-radius: 20px;
+    padding: 2.5rem;
+    border: 1px solid var(--dark-beige);
+    height: 100%;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s;
+}
+.shipping-step:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(139,115,85,0.15);
+}
+.step-number {
+    width: 60px;
+    height: 60px;
+    background: var(--coffee);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 auto 1.5rem;
+}
+
+.info-box {
+    background: white;
+    border-radius: 20px;
+    padding: 2.5rem;
+    border: 1px solid var(--dark-beige);
+    margin-bottom: 2rem;
+}
+.info-icon {
+    width: 70px;
+    height: 70px;
+    background: var(--beige);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--coffee);
+    margin-bottom: 1.5rem;
+}
+
+.tracking-section {
+    background: var(--coffee);
+    color: white;
+    padding: 80px 0;
+}
+
+.zone-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid var(--dark-beige);
+    margin-bottom: 1.5rem;
+}
+.zone-badge {
+    background: var(--beige);
+    color: var(--coffee);
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.accordion-button {
+    background: white;
+    color: var(--dark-coffee);
+    font-weight: 600;
+}
+.accordion-button:not(.collapsed) {
+    background: var(--beige);
+    color: var(--coffee);
+}
+.accordion-button:focus {
+    box-shadow: none;
+    border-color: var(--dark-beige);
+}

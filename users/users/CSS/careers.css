@@ -1,0 +1,79 @@
+@import url("base.css");
+@import url("components.css");
+@import url("layout.css");
+.benefit-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2.5rem;
+    border: 1px solid var(--dark-beige);
+    height: 100%;
+    transition: all 0.3s;
+}
+.benefit-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(139,115,85,0.15);
+}
+.benefit-icon {
+    width: 70px;
+    height: 70px;
+    background: var(--beige);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--coffee);
+    margin-bottom: 1.5rem;
+}
+
+.job-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid var(--dark-beige);
+    margin-bottom: 1.5rem;
+    transition: all 0.3s;
+}
+.job-card:hover {
+    box-shadow: 0 15px 30px rgba(139,115,85,0.15);
+    border-color: var(--coffee);
+}
+.job-badge {
+    background: var(--beige);
+    color: var(--coffee);
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: inline-block;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+.btn-apply {
+    background: var(--coffee);
+    color: white;
+    border-radius: 50px;
+    padding: 0.75rem 2rem;
+    border: none;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+.btn-apply:hover {
+    background: var(--dark-coffee);
+    transform: scale(1.05);
+}
+
+.culture-section {
+    background: var(--coffee);
+    color: white;
+    padding: 80px 0;
+}
+.form-control {
+border: 2px solid var(--dark-beige);
+border-radius: 12px;
+padding: 0.75rem 1rem;
+}
+.form-control:focus {
+border-color: var(--coffee);
+box-shadow: 0 0 0 0.2rem rgba(139,115,85,0.15);
+}

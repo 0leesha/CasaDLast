@@ -1,0 +1,104 @@
+@import url("base.css");
+@import url("components.css");
+@import url("layout.css");
+.care-category {
+    background: white;
+    border-radius: 20px;
+    padding: 2.5rem;
+    border: 1px solid var(--dark-beige);
+    margin-bottom: 2rem;
+    transition: all 0.3s;
+}
+.care-category:hover {
+    box-shadow: 0 15px 30px rgba(139,115,85,0.1);
+}
+
+.category-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+.category-icon {
+    width: 70px;
+    height: 70px;
+    background: var(--beige);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--coffee);
+    flex-shrink: 0;
+}
+.category-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--dark-coffee);
+    margin: 0;
+}
+
+.care-tip {
+    background: var(--beige);
+    border-left: 4px solid var(--coffee);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+.tip-title {
+    font-weight: 600;
+    color: var(--dark-coffee);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.do-dont-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+.do-card, .dont-card {
+    padding: 1.5rem;
+    border-radius: 12px;
+}
+.do-card {
+    background: #E8F4E1;
+    border-left: 4px solid #6B8E4E;
+}
+.dont-card {
+    background: #FFE8E8;
+    border-left: 4px solid #C85A54;
+}
+.do-title, .dont-title {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.do-title { color: #6B8E4E; }
+.dont-title { color: #C85A54; }
+
+.quick-tips {
+    background: var(--coffee);
+    color: white;
+    padding: 80px 0;
+}
+.tip-card {
+    background: rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    height: 100%;
+    backdrop-filter: blur(10px);
+}
+
+@media (max-width: 768px) {
+    .do-dont-section {
+        grid-template-columns: 1fr;
+    }
+    .hero-title { font-size: 2.5rem; }
+}

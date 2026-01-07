@@ -1,0 +1,228 @@
+@import url("base.css");
+@import url("components.css");
+@import url("layout.css");
+@import url("pagination.css");
+
+
+
+/* Category Stats */
+.category-stats {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    margin: -50px auto 3rem;
+    max-width: 900px;
+    position: relative;
+    z-index: 10;
+    box-shadow: 0 10px 40px rgba(139, 115, 85, 0.1);
+    border: 1px solid var(--dark-beige);
+}
+
+.stat-item {
+    text-align: center;
+    padding: 1rem;
+}
+
+.stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: var(--coffee);
+    font-weight: 600;
+    display: block;
+}
+
+.stat-label {
+    color: var(--soft-brown);
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+}
+
+/* Sub-Category Cards */
+.subcategory-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    border: 1px solid var(--dark-beige);
+    height: 100%;
+    position: relative;
+}
+
+.subcategory-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 24px 48px rgba(139, 115, 85, 0.15);
+}
+
+.subcategory-image {
+    height: 280px;
+    background: linear-gradient(135deg, var(--beige) 0%, var(--dark-beige) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.subcategory-image::before {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    top: -50px;
+    right: -50px;
+}
+
+.product-count {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: var(--coffee);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    z-index: 2;
+}
+
+.subcategory-info {
+    padding: 2rem;
+}
+
+.subcategory-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.75rem;
+    color: var(--dark-coffee);
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.subcategory-description {
+    color: var(--soft-brown);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.subcategory-link {
+    color: var(--coffee);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: gap 0.3s ease;
+}
+
+.subcategory-link:hover {
+    gap: 0.75rem;
+    color: var(--dark-coffee);
+}
+
+.subcategory-link i {
+    transition: transform 0.3s ease;
+}
+
+.subcategory-card:hover .subcategory-link i {
+    transform: translateX(5px);
+}
+
+/* Featured Badge */
+.featured-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: #27ae60;
+    color: white;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    z-index: 2;
+}
+
+/* Section Title */
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: var(--dark-coffee);
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.section-subtitle {
+    color: var(--soft-brown);
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+}
+
+/* Filter Buttons */
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 0.75rem 2rem;
+    border: 2px solid var(--dark-beige);
+    background: white;
+    color: var(--charcoal);
+    border-radius: 50px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: var(--coffee);
+    border-color: var(--coffee);
+    color: white;
+}
+
+/* CTA Banner */
+.cta-banner {
+    background: linear-gradient(135deg, var(--coffee) 0%, var(--dark-coffee) 100%);
+    border-radius: 20px;
+    padding: 4rem 3rem;
+    margin-top: 4rem;
+    color: white;
+    text-align: center;
+}
+
+.cta-banner h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.cta-banner p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+
+    .cta-banner {
+        padding: 3rem 2rem;
+    }
+
+    .cta-banner h2 {
+        font-size: 2rem;
+    }
+}
