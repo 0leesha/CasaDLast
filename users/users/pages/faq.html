@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequently Asked Questions - CASA D LAST</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css">
+
+    <style>
+        :root {
+            --beige: #F5EFE7;
+            --dark-beige: #E8DCC8;
+            --coffee: #8B7355;
+            --dark-coffee: #6B5744;
+            --cream: #FFF8F0;
+            --charcoal: #3E3E3E;
+            --soft-brown: #A89080;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--cream);
+            color: var(--charcoal);
+        }
+
+        .navbar {
+            background: rgba(255,248,240,0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--dark-beige);
+        }
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--coffee) !important;
+            font-weight: 600;
+        }
+        .nav-link { color: var(--charcoal) !important; }
+        .nav-link:hover { color: var(--coffee) !important; }
+
+        .hero-section {
+            background: linear-gradient(135deg, var(--coffee) 0%, var(--dark-coffee) 100%);
+            padding: 100px 0;
+            color: white;
+            text-align: center;
+        }
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .search-box {
+            background: white;
+            border-radius: 50px;
+            padding: 1.5rem 2rem;
+            max-width: 600px;
+            margin: 2rem auto 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .search-box input {
+            border: none;
+            outline: none;
+            width: 100%;
+            font-size: 1.1rem;
+            padding: 0.5rem;
+        }
+
+        .category-tabs {
+            background: white;
+            border-radius: 20px;
+            padding: 1.5rem;
+            border: 1px solid var(--dark-beige);
+            margin-bottom: 2rem;
+            position: sticky;
+            top: 80px;
+        }
+        .category-btn {
+            background: transparent;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 500;
+            color: var(--charcoal);
+            transition: all 0.3s;
+            width: 100%;
+            text-align: left;
+            margin-bottom: 0.5rem;
+        }
+        .category-btn:hover, .category-btn.active {
+            background: var(--beige);
+            color: var(--coffee);
+        }
+
+        .faq-section {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid var(--dark-beige);
+            margin-bottom: 2rem;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--dark-coffee);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .section-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--beige);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--coffee);
+        }
+
+        .accordion-button {
+            background: white;
+            color: var(--dark-coffee);
+            font-weight: 500;
+            padding: 1.25rem 1.5rem;
+            font-size: 1.05rem;
+        }
+        .accordion-button:not(.collapsed) {
+            background: var(--beige);
+            color: var(--coffee);
+            box-shadow: none;
+        }
+        .accordion-button:focus {
+            box-shadow: none;
+            border-color: var(--dark-beige);
+        }
+        .accordion-item {
+            border: 1px solid var(--dark-beige);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+        .accordion-body {
+            padding: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .contact-card {
+            background: var(--beige);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">CASA D LAST</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Shop</a></li>
+                <li class="nav-item"><a class="nav-link active" href="#">FAQ</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="hero-section">
+    <div class="container">
+        <h1 class="hero-title">Frequently Asked Questions</h1>
+        <p class="lead" style="font-size: 1.2rem; max-width: 700px; margin: 0 auto;">
+            Find answers to common questions about our products, ordering, shipping, and more.
+        </p>
+        <div class="search-box">
+            <i class="bi bi-search" style="color: var(--soft-brown); margin-right: 1rem;"></i>
+            <input type="text" id="searchInput" placeholder="Search for answers..." onkeyup="searchFAQ()">
+        </div>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="category-tabs">
+                    <h6 style="color: var(--coffee); font-weight: 600; margin-bottom: 1rem; padding-left: 1.5rem;">Categories</h6>
+                    <button class="category-btn active" onclick="scrollToSection('orders')">
+                        <i class="bi bi-cart-check"></i> Orders & Payment
+                    </button>
+                    <button class="category-btn" onclick="scrollToSection('shipping')">
+                        <i class="bi bi-truck"></i> Shipping & Delivery
+                    </button>
+                    <button class="category-btn" onclick="scrollToSection('returns')">
+                        <i class="bi bi-arrow-repeat"></i> Returns & Refunds
+                    </button>
+                    <button class="category-btn" onclick="scrollToSection('products')">
+                        <i class="bi bi-box-seam"></i> Products
+                    </button>
+                    <button class="category-btn" onclick="scrollToSection('account')">
+                        <i class="bi bi-person-circle"></i> Account
+                    </button>
+                    <button class="category-btn" onclick="scrollToSection('general')">
+                        <i class="bi bi-question-circle"></i> General
+                    </button>
+                </div>
+            </div>
+
+            <div class="col-lg-9">
+                <!-- Orders & Payment -->
+                <div id="orders" class="faq-section">
+                    <div class="section-title">
+                        <div class="section-icon"><i class="bi bi-cart-check"></i></div>
+                        <span>Orders & Payment</span>
+                    </div>
+                    <div class="accordion" id="ordersAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#o1">
+                                    How do I place an order?
+                                </button>
+                            </h2>
+                            <div id="o1" class="accordion-collapse collapse show" data-bs-parent="#ordersAccordion">
+                                <div class="accordion-body">
+                                    Browse products, add items to cart, proceed to checkout, enter shipping details, select payment method, and confirm your order. You'll receive an order confirmation email immediately.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#o2">
+                                    What payment methods do you accept?
+                                </button>
+                            </h2>
+                            <div id="o2" class="accordion-collapse collapse" data-bs-parent="#ordersAccordion">
+                                <div class="accordion-body">
+                                    We accept credit/debit cards (Visa, MasterCard, Amex), net banking, UPI, digital wallets (Paytm, PhonePe, Google Pay), and EMI options on select cards. All payments are secure and encrypted.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#o3">
+                                    Can I cancel my order?
+                                </button>
+                            </h2>
+                            <div id="o3" class="accordion-collapse collapse" data-bs-parent="#ordersAccordion">
+                                <div class="accordion-body">
+                                    Yes, you can cancel your order before it's dispatched. Log into your account, go to "My Orders," and click "Cancel Order." Full refund will be processed within 5-7 business days.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#o4">
+                                    Is my payment information secure?
+                                </button>
+                            </h2>
+                            <div id="o4" class="accordion-collapse collapse" data-bs-parent="#ordersAccordion">
+                                <div class="accordion-body">
+                                    Absolutely. We use industry-standard SSL encryption and secure payment gateways. We never store your complete card details on our servers.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#o5">
+                                    Do you offer EMI options?
+                                </button>
+                            </h2>
+                            <div id="o5" class="accordion-collapse collapse" data-bs-parent="#ordersAccordion">
+                                <div class="accordion-body">
+                                    Yes, we offer EMI options on orders above ₹5,000 with select banks. You can choose 3, 6, 9, or 12-month EMI plans at checkout. Interest rates vary by bank.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shipping & Delivery -->
+                <div id="shipping" class="faq-section">
+                    <div class="section-title">
+                        <div class="section-icon"><i class="bi bi-truck"></i></div>
+                        <span>Shipping & Delivery</span>
+                    </div>
+                    <div class="accordion" id="shippingAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#s1">
+                                    How long does delivery take?
+                                </button>
+                            </h2>
+                            <div id="s1" class="accordion-collapse collapse" data-bs-parent="#shippingAccordion">
+                                <div class="accordion-body">
+                                    Delivery time varies by location: Metro cities (3-5 days), Tier 2 cities (5-7 days), Other locations (7-10 days). Exact timeline is shown at checkout based on your pin code.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#s2">
+                                    How can I track my order?
+                                </button>
+                            </h2>
+                            <div id="s2" class="accordion-collapse collapse" data-bs-parent="#shippingAccordion">
+                                <div class="accordion-body">
+                                    Once shipped, you'll receive a tracking number via email and SMS. Use this on our "Track Order" page or your account dashboard to see real-time delivery status.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#s3">
+                                    What are the shipping charges?
+                                </button>
+                            </h2>
+                            <div id="s3" class="accordion-collapse collapse" data-bs-parent="#shippingAccordion">
+                                <div class="accordion-body">
+                                    Shipping is free for orders above ₹15,000 (metro cities), ₹20,000 (tier 2 cities), and ₹25,000 (other locations). Below these amounts, charges apply based on your zone.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#s4">
+                                    Do you deliver to all locations in India?
+                                </button>
+                            </h2>
+                            <div id="s4" class="accordion-collapse collapse" data-bs-parent="#shippingAccordion">
+                                <div class="accordion-body">
+                                    We deliver to most serviceable pin codes across India. Enter your pin code at checkout to check availability. Remote areas may have extended delivery times.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Returns & Refunds -->
+                <div id="returns" class="faq-section">
+                    <div class="section-title">
+                        <div class="section-icon"><i class="bi bi-arrow-repeat"></i></div>
+                        <span>Returns & Refunds</span>
+                    </div>
+                    <div class="accordion" id="returnsAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#r1">
+                                    What is your return policy?
+                                </button>
+                            </h2>
+                            <div id="r1" class="accordion-collapse collapse" data-bs-parent="#returnsAccordion">
+                                <div class="accordion-body">
+                                    We offer a 7-day return policy from delivery date. Items must be unused, in original packaging with tags attached. Some products like custom-made furniture are not eligible for return.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#r2">
+                                    How do I initiate a return?
+                                </button>
+                            </h2>
+                            <div id="r2" class="accordion-collapse collapse" data-bs-parent="#returnsAccordion">
+                                <div class="accordion-body">
+                                    Log into your account, go to "My Orders," select the item, and click "Return." Choose a reason, schedule pickup, and our team will collect the item. Returns are free for defective/damaged products.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#r3">
+                                    When will I receive my refund?
+                                </button>
+                            </h2>
+                            <div id="r3" class="accordion-collapse collapse" data-bs-parent="#returnsAccordion">
+                                <div class="accordion-body">
+                                    Refunds are processed within 5-7 business days after we receive and inspect the returned item. The amount will be credited to your original payment method.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#r4">
+                                    Can I exchange an item?
+                                </button>
+                            </h2>
+                            <div id="r4" class="accordion-collapse collapse" data-bs-parent="#returnsAccordion">
+                                <div class="accordion-body">
+                                    Yes, exchanges are available for size, color, or design variations within 7 days. Initiate an exchange request from your account. We'll arrange pickup and delivery of the replacement item.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Products -->
+                <div id="products" class="faq-section">
+                    <div class="section-title">
+                        <div class="section-icon"><i class="bi bi-box-seam"></i></div>
+                        <span>Products</span>
+                    </div>
+                    <div class="accordion" id="productsAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#p1">
+                                    Are your products genuine?
+                                </button>
+                            </h2>
+                            <div id="p1" class="accordion-collapse collapse" data-bs-parent="#productsAccordion">
+                                <div class="accordion-body">
+                                    Yes, all products are 100% genuine and sourced directly from authorized manufacturers and trusted suppliers. We verify quality and authenticity for every item.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#p2">
+                                    Do products come with warranty?
+                                </button>
+                            </h2>
+                            <div id="p2" class="accordion-collapse collapse" data-bs-parent="#productsAccordion">
+                                <div class="accordion-body">
+                                    Most products come with manufacturer warranty ranging from 6 months to 2 years. Warranty details are mentioned on each product page. Keep your invoice for warranty claims.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#p3">
+                                    Can I customize furniture?
+                                </button>
+                            </h2>
+                            <div id="p3" class="accordion-collapse collapse" data-bs-parent="#productsAccordion">
+                                <div class="accordion-body">
+                                    Yes, we offer customization for select furniture items including size, color, and fabric options. Look for the "Customize" option on product pages or contact us for special requests.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#p4">
+                                    How do I know the actual color of products?
+                                </button>
+                            </h2>
+                            <div id="p4" class="accordion-collapse collapse" data-bs-parent="#productsAccordion">
+                                <div class="accordion-body">
+                                    We provide multiple high-resolution images. However, colors may vary slightly due to screen settings. Check product descriptions for detailed color information or contact us for samples.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Account -->
+                <div id="account" class="faq-section">
+                    <div class="section-title">
+                        <div class="section-icon"><i class="bi bi-person-circle"></i></div>
+                        <span>Account</span>
+                    </div>
+                    <div class="accordion" id="accountAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a1">
+                                    How do I create an account?
+                                </button>
+                            </h2>
+                            <div id="a1" class="accordion-collapse collapse" data-bs-parent="#accountAccordion">
+                                <div class="accordion-body">
+                                    Click "Sign Up" in the top right corner. Enter your name, email, phone number, and create a password. Verify your email and you're ready to shop!
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a2">
+                                    I forgot my password. What should I do?
+                                </button>
+                            </h2>
+                            <div id="a2" class="accordion-collapse collapse" data-bs-parent="#accountAccordion">
+                                <div class="accordion-body">
+                                    Click "Forgot Password" on the login page. Enter your registered email, and we'll send you a password reset link. Follow the instructions to create a new password.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a3">
+                                    How do I update my profile information?
+                                </button>
+                            </h2>
+                            <div id="a3" class="accordion-collapse collapse" data-bs-parent="#accountAccordion">
+                                <div class="accordion-body">
+                                    Log in and go to "My Account." You can update your name, phone number, email, addresses, and password from the profile settings section.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- General -->
+                <div id="general" class="faq-section">
+                    <div class="section-title">
+                        <div class="section-icon"><i class="bi bi-question-circle"></i></div>
+                        <span>General</span>
+                    </div>
+                    <div class="accordion" id="generalAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#g1">
+                                    How can I contact customer support?
+                                </button>
+                            </h2>
+                            <div id="g1" class="accordion-collapse collapse" data-bs-parent="#generalAccordion">
+                                <div class="accordion-body">
+                                    Call us at +91-XXXXXXXXXX (9 AM - 6 PM), email support@casadlast.com, or use live chat on our website. We respond to emails within 24 hours.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#g2">
+                                    Do you have physical stores?
+                                </button>
+                            </h2>
+                            <div id="g2" class="accordion-collapse collapse" data-bs-parent="#generalAccordion">
+                                <div class="accordion-body">
+                                    We're a digital-first platform. This allows us to offer better prices and wider selection. However, we're planning experience centers in select cities soon.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#g3">
+                                    Do you offer bulk discounts?
+                                </button>
+                            </h2>
+                            <div id="g3" class="accordion-collapse collapse" data-bs-parent="#generalAccordion">
+                                <div class="accordion-body">
+                                    Yes, we offer special pricing for bulk orders for businesses, hotels, offices, etc. Contact our B2B team at b2b@casadlast.com with your requirements.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Still Have Questions -->
+                <div class="contact-card">
+                    <i class="bi bi-headset" style="font-size: 4rem; color: var(--coffee); margin-bottom: 1.5rem;"></i>
+                    <h3 style="font-family: 'Playfair Display', serif; color: var(--dark-coffee); margin-bottom: 1rem;">Still Have Questions?</h3>
+                    <p style="color: var(--soft-brown); margin-bottom: 2rem;">Our support team is here to help you</p>
+                    <div class="d-flex gap-3 justify-content-center flex-wrap">
+                        <a href="#" class="btn btn-lg" style="background: var(--coffee); color: white; border-radius: 50px; padding: 0.75rem 2rem;">Contact Support</a>
+                        <a href="#" class="btn btn-outline-dark btn-lg" style="border-radius: 50px; padding: 0.75rem 2rem; border: 2px solid var(--coffee); color: var(--coffee);">Live Chat</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <div id="footer"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../JS/services/cart.service.js"></script>
+    <script src="../JS/ui/cart.ui.js"></script>
+    <script src="../JS/common.js"></script>
+    <script src="../JS/index.js"></script>
+    <script src="../JS/app.js"></script>
+<script>
+function scrollToSection(id) {
+    const element = document.getElementById(id);
+    if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    
+    document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+}
+
+function searchFAQ() {
+    const input = document.getElementById('searchInput');
+    const filter = input.value.toLowerCase();
+    const sections = document.querySelectorAll('.faq-section');
+    
+    sections.forEach(section => {
+        const questions = section.querySelectorAll('.accordion-button');
+        const answers = section.querySelectorAll('.accordion-body');
+        let sectionHasMatch = false;
+        
+        questions.forEach((question, index) => {
+            const questionText = question.textContent.toLowerCase();
+            const answerText = answers[index].textContent.toLowerCase();
+            const item = question.closest('.accordion-item');
+            
+            if (questionText.includes(filter) || answerText.includes(filter)) {
+                item.style.display = '';
+                sectionHasMatch = true;
+            } else {
+                item.style.display = 'none';
+            }
+        });
+        
+        section.style.display = sectionHasMatch ? '' : 'none';
+    });
+}
+</script>
+
+</body>
+</html>

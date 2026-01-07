@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Order</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/track_order.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">    
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+    <div id="navbar"></div>
+
+    <!-- Page Header -->
+    <div class="page-hero">
+        <div class="container page-hero-content">
+            <h1 class="page-title">Track Your Order</h1>
+        </div>
+    </div>
+
+    <!-- Tracking Container -->
+    <div class="tracking-container">
+        <div class="container">
+            <!-- Order Info -->
+            <div class="order-info-card">
+                <div class="order-header">
+                    <div>
+                        <div class="order-number" id="track-order-number"></div>
+                        <div class="order-date" id="track-order-date"></div>
+                    </div>
+                    <span class="status-badge status-shipped" id="track-status"></span>
+                </div>
+
+                <div class="order-details">
+                    <div class="detail-item">
+                        <label>Estimated Delivery</label>
+                        <div class="info-value" id="track-estimated-delivery"></div>
+                    </div>
+                    <div class="detail-item">
+                        <label>Shipping Method</label>
+                        <div class="info-value" id="track-shipping-method"></div>
+                    </div>
+                    <div class="detail-item">
+                        <label>Tracking Number</label>
+                        <div class="info-value" id="track-tracking-number"></div>
+                    </div>
+                    <div class="detail-item">
+                        <label>Delivery Address</label>
+                        <div class="info-value" id="track-delivery-address"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tracking Timeline -->
+            <div class="tracking-timeline">
+                <h3 class="timeline-title">Order Timeline</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="bi bi-check-lg"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h4>Order Placed</h4>
+                            <p>Your order has been received and confirmed</p>
+                            <div class="timeline-date" id="timeline-order-date"></div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="bi bi-check-lg"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h4>Order Processing</h4>
+                            <p>Your items are being prepared for shipment</p>
+                            <div class="timeline-date">Dec 16, 2024 - 02:15 PM</div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="bi bi-check-lg"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h4>Shipped</h4>
+                            <p>Your order has been picked up by the courier</p>
+                            <div class="timeline-date">Dec 18, 2024 - 09:00 AM</div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="bi bi-truck"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h4>Out for Delivery</h4>
+                            <p>Your order is on the way and will be delivered today</p>
+                            <div class="timeline-date">Dec 27, 2024 - 08:30 AM</div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-icon">
+                            <i class="bi bi-box-seam"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h4>Delivered</h4>
+                            <p>Your order will be marked as delivered</p>
+                            <div class="timeline-date">Pending</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Order Products -->
+            <div class="order-products">
+                <h3 class="timeline-title">Order Items</h3>
+                <div id="track-order-items"></div>
+
+                <div class="text-end mt-3 pt-3" style="border-top: 2px solid var(--dark-beige);">
+                    <h4>
+                        Total:
+                        <span id="track-order-total"></span>
+                    </h4>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="user_dashboard.html" class="btn btn-custom btn-primary-custom">Back to Dashboard</a>
+            </div>
+        </div>
+    </div>
+    <div id="footer"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../JS/services/cart.service.js"></script>
+    <script src="../JS/ui/cart.ui.js"></script>
+    <script src="../JS/common.js"></script>
+    <script src="../JS/index.js"></script>
+    <script src="../JS/app.js"></script>
+    <script>
+    const params = new URLSearchParams(window.location.search);
+    const orderId = params.get('order');
+
+    if (!orderId) {
+        alert('Invalid order');
+        window.location.href = 'user_dashboard.html';
+    }
+
+    // Read orders
+    const orders = JSON.parse(localStorage.getItem('orders')) || [];
+    const order = orders.find(o => o.id === orderId);
+    // ===== Delivery Info =====
+
+    // Estimated delivery
+    document.getElementById('track-estimated-delivery').textContent =
+        order.estimatedDelivery || 'To be updated';
+
+    // Shipping method
+    document.getElementById('track-shipping-method').textContent =
+        order.shippingMethod || 'Standard Shipping';
+
+    // Tracking number
+    document.getElementById('track-tracking-number').textContent =
+        order.trackingNumber || 'Will be assigned soon';
+
+    // Delivery address
+    document.getElementById('track-delivery-address').textContent =
+        order.address || 'Address not available';
+
+    if (!order) {
+        alert('Order not found');
+        window.location.href = 'user_dashboard.html';
+    }
+
+    // ===== Populate header =====
+    document.getElementById('track-order-number').textContent = `Order #${order.id}`;
+    document.getElementById('track-order-date').textContent = `Placed on ${order.date}`;
+    document.getElementById('track-status').textContent = order.status;
+    document.getElementById('track-status').classList.add(`status-${order.status}`);
+    document.getElementById('timeline-order-date').textContent = `Placed on ${order.date}`;
+
+    // ===== Timeline logic =====
+    const steps = [
+        'processing',
+        'packed',
+        'picked-up',
+        'out-for-delivery',
+        'delivered'
+    ];
+
+    const currentIndex = steps.indexOf(order.status);
+
+    document.querySelectorAll('.timeline-item').forEach((item, index) => {
+        if (index < currentIndex) {
+            item.classList.add('completed');
+        }
+        if (index === currentIndex) {
+            item.classList.add('active');
+        }
+    });
+
+    // ===== Render items =====
+    const itemsContainer = document.getElementById('track-order-items');
+    itemsContainer.innerHTML = '';
+
+    order.items.forEach(item => {
+        itemsContainer.innerHTML += `
+            <div class="product-item">
+                <div class="product-details">
+                    <div class="product-name">${item.name}</div>
+                    <div class="product-meta">Quantity: ${item.quantity}</div>
+                </div>
+                <div class="product-price">₹${item.price * item.quantity}</div>
+            </div>
+        `;
+    });
+
+    document.getElementById('track-order-total').textContent = `₹${order.total}`;
+
+    // ===== Auto refresh (delivery updates) =====
+    setInterval(() => {
+        const updatedOrders = JSON.parse(localStorage.getItem('orders')) || [];
+        const updatedOrder = updatedOrders.find(o => o.id === orderId);
+
+        if (updatedOrder && updatedOrder.status !== order.status) {
+            location.reload();
+        }
+    }, 5000);
+    </script>
+
+</html>
