@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CasaDLast - Payment Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/payment.css">
+</head>
+<body>
+    <!-- Top Navbar -->
+    <nav class="top-navbar">
+        <div class="logo-section">
+            <img class="navbar-brand" src="../../logo.jpeg" alt="logo" width="60" height="60">
+            <span>CasaDLast Admin</span>
+        </div>
+        <div>
+            <a href="account.html" class="me-3" style="color: white; text-decoration: none;">
+                <i class="fas fa-user-circle"></i> Account
+            </a>
+            <button class="btn logout-btn">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <ul class="sidebar-menu">
+            <li><a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
+            <li><a href="manageusers.html"><i class="fas fa-users"></i> <span>Manage Users</span></a></li>
+            <li><a href="category.html"><i class="fas fa-list"></i> <span>Categories</span></a></li>
+            <li><a href="subcategory.html"><i class="fas fa-sitemap"></i> <span>Sub Categories</span></a></li>
+            <li><a href="product.html"><i class="fas fa-couch"></i> <span>Products</span></a></li>
+            <li><a href="order.html"><i class="fas fa-shopping-cart"></i> <span>Orders</span></a></li>
+            <li><a href="offer.html"><i class="fas fa-tag"></i> <span>Offers</span></a></li>
+            <li><a href="deliverypartner.html"><i class="fas fa-truck"></i> <span>Delivery Partners</span></a></li>
+            <li><a href="payment.html" class="active"><i class="fas fa-credit-card"></i><span>Payments</span></a></li>
+            <li><a href="invoice.html"><i class="fas fa-file-invoice"></i> <span>Invoices</span></a></li>
+            <li><a href="inquiry.html"><i class="fas fa-envelope"></i> <span>Inquiries</span></a></li>
+            <li><a href="feedback.html"><i class="fas fa-star"></i> <span>Feedbacks</span></a></li>
+            <li><a href="gallery.html"><i class="fas fa-chart-bar"></i> <span>Gallery/Blogs</span></a></li>
+            <li><a href="report.html"><i class="fas fa-chart-bar"></i> <span>Reports</span></a></li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="page-header">
+            <h1>Payment Management</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="dashboard.html">Home</a></li>
+                    <li class="breadcrumb-item active">Payments</li>
+                </ol>
+            </nav>
+        </div>
+
+        <!-- Payment Statistics -->
+        <div class="row g-4">
+            <div class="col-md-3">
+                <div class="payment-stats-card cod">
+                    <div class="stat-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <div class="stat-label">COD Payments</div>
+                    <div class="stat-value">₹2,45,680</div>
+                    <small class="text-muted">432 transactions</small>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="payment-stats-card online">
+                    <div class="stat-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <div class="stat-label">Online Payments</div>
+                    <div class="stat-value">₹4,89,320</div>
+                    <small class="text-muted">528 transactions</small>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="payment-stats-card pending">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-label">Pending</div>
+                    <div class="stat-value">₹58,420</div>
+                    <small class="text-muted">34 transactions</small>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="payment-stats-card failed">
+                    <div class="stat-icon">
+                       <i class="fas fa-times-circle"></i>
+                    </div>
+                    <div class="stat-label">Failed</div>
+                    <div class="stat-value">₹12,560</div>
+                    <small class="text-muted">18 transactions</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Payment Transactions Table -->
+        <div class="payment-table-card">
+            <div class="table-header">
+                <h2><i class="fas fa-list-check"></i>Payment Transactions</h2>
+                <div class="filter-controls">
+                    <button class="filter-btn active" onclick="filterPayments('all')">All</button>
+                    <button class="filter-btn" onclick="filterPayments('cod')">COD</button>
+                    <button class="filter-btn" onclick="filterPayments('online')">Online</button>
+                    <button class="filter-btn" onclick="filterPayments('completed')">Completed</button>
+                    <button class="filter-btn" onclick="filterPayments('pending')">Pending</button>
+                    <div class="search-box">
+                        <input type="text" placeholder="Search by Order ID..." id="searchInput">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="payment-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer</th>
+                            <th>Payment Method</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                            <th>Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="paymentTableBody">
+                        <tr data-method="online" data-status="completed">
+                            <td><strong>#ORD-1234</strong></td>
+                            <td>Rajesh Kumar</td>
+                            <td>
+                                <span class="payment-method-icon method-online">
+                                    <i class="fas fa-credit-card"></i>
+                                </span>
+                                Online (UPI)
+                            </td>
+                            <td><strong>₹15,499</strong></td>
+                            <td><span class="badge badge-success">Completed</span></td>
+                            <td>Dec 28, 2024</td>
+                            <td>
+                                <!-- <button class="action-btn btn-view" onclick="viewPaymentDetails('#ORD-1234')"> -->
+                                <button class="action-btn view" onclick="viewPaymentDetails('#ORD-1234')">
+                                    <i class="fas fa-eye"></i> 
+                                </button>
+                            </td>
+                        </tr>
+                        <tr data-method="cod" data-status="pending">
+                            <td><strong>#ORD-1235</strong></td>
+                            <td>Priya Sharma</td>
+                            <td>
+                                <span class="payment-method-icon method-cod">
+                                    <i class="fas fa-money-bill"></i>
+                                </span>
+                                Cash on Delivery
+                            </td>
+                            <td><strong>₹8,999</strong></td>
+                            <td><span class="badge badge-warning">Pending</span></td>
+                            <td>Dec 29, 2024</td>
+                            <td>
+                                <!-- <button class="action-btn btn-view" onclick="viewPaymentDetails('#ORD-1235')"> -->
+                                <button class="action-btn view" onclick="viewPaymentDetails('#ORD-1234')">
+                                    <i class="fas fa-eye"></i> 
+                                </button>
+                            </td>
+                        </tr>
+                        <tr data-method="online" data-status="completed">
+                            <td><strong>#ORD-1236</strong></td>
+                            <td>Amit Patel</td>
+                            <td>
+                                <span class="payment-method-icon method-online">
+                                    <i class="fas fa-credit-card"></i>
+                                </span>
+                                Online (Card)
+                            </td>
+                            <td><strong>₹24,599</strong></td>
+                            <td><span class="badge badge-success">Completed</span></td>
+                            <td>Dec 29, 2024</td>
+                            <td>
+                                <!-- <button class="action-btn btn-view" onclick="viewPaymentDetails('#ORD-1236')"> -->
+                                <button class="action-btn view" onclick="viewPaymentDetails('#ORD-1234')">
+                                    <i class="fas fa-eye"></i> 
+                                </button>
+                            </td>
+                        </tr>
+                        <tr data-method="cod" data-status="completed">
+                            <td><strong>#ORD-1237</strong></td>
+                            <td>Neha Gupta</td>
+                            <td>
+                                <span class="payment-method-icon method-cod">
+                                    <i class="fas fa-money-bill"></i>
+                                </span>
+                                Cash on Delivery
+                            </td>
+                            <td><strong>₹12,750</strong></td>
+                            <td><span class="badge badge-success">Completed</span></td>
+                            <td>Dec 30, 2024</td>
+                            <td>
+                                <!-- <button class="action-btn btn-view" onclick="viewPaymentDetails('#ORD-1237')"> -->
+                                <button class="action-btn view" onclick="viewPaymentDetails('#ORD-1234')">
+                                   <i class="fas fa-eye"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr data-method="online" data-status="failed">
+                            <td><strong>#ORD-1238</strong></td>
+                            <td>Suresh Reddy</td>
+                            <td>
+                                <span class="payment-method-icon method-online">
+                                   <i class="fas fa-credit-card"></i>
+                                </span>
+                                Online (UPI)
+                            </td>
+                            <td><strong>₹7,899</strong></td>
+                            <td><span class="badge badge-danger">Failed</span></td>
+                            <td>Dec 30, 2024</td>
+                            <td>
+                                <!-- <button class="action-btn btn-view" onclick="viewPaymentDetails('#ORD-1238')"> -->
+                                <button class="action-btn view" onclick="viewPaymentDetails('#ORD-1234')">
+                                    <i class="fas fa-eye"></i> 
+                                </button>
+                            </td>
+                        </tr>
+                        <tr data-method="online" data-status="completed">
+                            <td><strong>#ORD-1239</strong></td>
+                            <td>Kavita Singh</td>
+                            <td>
+                                <span class="payment-method-icon method-online">
+                                    <i class="fas fa-credit-card"></i>
+                                </span>
+                                Online (Wallet)
+                            </td>
+                            <td><strong>₹18,999</strong></td>
+                            <td><span class="badge badge-success">Completed</span></td>
+                            <td>Dec 31, 2024</td>
+                            <td>
+                                <!-- <button class="action-btn btn-view" onclick="viewPaymentDetails('#ORD-1239')"> -->
+                                    <button class="action-btn view" onclick="viewPaymentDetails('#ORD-1234')">
+                                    <i class="fas fa-eye"></i> 
+                                </button>
+                            </td>
+                        </tr>
+                        <tr data-method="cod" data-status="pending">
+                            <td><strong>#ORD-1240</strong></td>
+                            <td>Vikram Joshi</td>
+                            <td>
+                                <span class="payment-method-icon method-cod">
+                                    <i class="fas fa-money-bill"></i>
+                                </span>
+                                Cash on Delivery
+                            </td>
+                            <td><strong>₹9,450</strong></td>
+                            <td><span class="badge badge-warning">Pending</span></td>
+                            <td>Jan 01, 2026</td>
+                            <td>
+                                <!-- <button class="action-btn btn-view" onclick="viewPaymentDetails('#ORD-1240')"> -->
+                                <button class="action-btn view" onclick="viewPaymentDetails('#ORD-1234')">
+                                    <i class="fas fa-eye"></i>  
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="pagination">
+                <button><i class="fas fa-chevron-left"></i></button>
+                <button class="active">1</button>
+                <button>2</button>
+                <button>3</button>
+                <button>4</button>
+                <button><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Payment Details Modal -->
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-receipt"></i> Payment Details</h3>
+                <button class="close" onclick="closeModal()">&times;</button>
+            </div>
+            <div id="modalBody">
+                <!-- Payment details will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/payment.js"></script>
+</body>
+</html>

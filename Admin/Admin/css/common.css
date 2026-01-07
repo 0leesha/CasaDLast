@@ -1,0 +1,24 @@
+:root {
+            --sidebar-width: 250px;
+            --navbar-height: 60px;
+            --beige: #F5EFE7;
+            --dark-beige: #E8DCC8;
+            --coffee: #8B7355;
+            --dark-coffee: #6B5744;
+            --cream: #FFF8F0;
+            --charcoal: #3E3E3E;
+            --soft-brown: #A89080;
+            --sidebar-bg: #3E3E3E;
+            --sidebar-hover: #6B5744;
+}
+
+ * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+}
+
+body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--cream);
+}

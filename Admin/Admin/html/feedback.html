@@ -1,0 +1,336 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CasaDLast - Manage Feedback</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/feedback.css">
+</head>
+<body>
+    <!-- Top Navbar -->
+    <nav class="top-navbar">
+        <div class="logo-section">
+            <img class="navbar-brand" src="../../logo.jpeg" alt="logo" width="60" height="60">
+            <span>CasaDLast Admin</span>
+        </div>
+        <div>
+            <a href="account.html" class="me-3" style="color: white; text-decoration: none;">
+                <i class="fas fa-user-circle"></i> Account
+            </a>
+            <button class="btn logout-btn">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <ul class="sidebar-menu">
+            <li><a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
+            <li><a href="manageusers.html"><i class="fas fa-users"></i> <span>Manage Users</span></a></li>
+            <li><a href="category.html"><i class="fas fa-list"></i> <span>Categories</span></a></li>
+            <li><a href="subcategory.html"><i class="fas fa-sitemap"></i> <span>Sub Categories</span></a></li>
+            <li><a href="product.html"><i class="fas fa-couch"></i> <span>Products</span></a></li>
+            <li><a href="order.html"><i class="fas fa-shopping-cart"></i> <span>Orders</span></a></li>
+            <li><a href="offer.html"><i class="fas fa-tag"></i> <span>Offers</span></a></li>
+            <li><a href="deliverypartner.html"><i class="fas fa-truck"></i> <span>Delivery Partners</span></a></li>
+            <li><a href="payment.html"><i class="fas fa-credit-card"></i><span>Payments</span></a></li>
+            <li><a href="invoice.html"><i class="fas fa-file-invoice"></i> <span>Invoices</span></a></li>
+            <li><a href="inquiry.html"><i class="fas fa-envelope"></i> <span>Inquiries</span></a></li>
+            <li><a href="feedback.html"  class="active"><i class="fas fa-star"></i> <span>Feedbacks</span></a></li>
+            <li><a href="gallery.html"><i class="fas fa-chart-bar"></i> <span>Gallery/Blogs</span></a></li>
+            <li><a href="report.html"><i class="fas fa-chart-bar"></i> <span>Reports</span></a></li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="page-header">
+            <h1><i class="fas fa-star"></i> Manage Feedback</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="dashboard.html">Home</a></li>
+                    <li class="breadcrumb-item active">Manage Feedback</li>
+                </ol>
+            </nav>
+        </div>
+
+        <!-- Statistics Cards -->
+        <div class="row stats-row g-4">
+            <div class="col-md-3">
+                <div class="stat-card">
+                    <i class="fas fa-star stat-total"></i>
+                    <h4>287</h4>
+                    <p>Total Reviews</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stat-card">
+                    <i class="fas fa-star stat-excellent"></i>
+                    <h4>4.6</h4>
+                    <p>Average Rating</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stat-card">
+                    <i class="fas fa-check-circle stat-good"></i>
+                    <h4>245</h4>
+                    <p>Published</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stat-card">
+                    <i class="fas fa-clock stat-average"></i>
+                    <h4>42</h4>
+                    <p>Pending Review</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filter Section -->
+        <div class="filter-section">
+            <div class="row align-items-end">
+                <div class="col-md-3">
+                    <label class="form-label">Rating Filter</label>
+                    <select class="form-select" id="ratingFilter">
+                        <option value="all">All Ratings</option>
+                        <option value="5">5 Stars</option>
+                        <option value="4">4 Stars</option>
+                        <option value="3">3 Stars</option>
+                        <option value="2">2 Stars</option>
+                        <option value="1">1 Star</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Status Filter</label>
+                    <select class="form-select" id="statusFilter">
+                        <option value="all">All Status</option>
+                        <option value="published">Published</option>
+                        <option value="pending">Pending</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Date From</label>
+                    <input type="date" class="form-control" id="dateFrom">
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Search</label>
+                    <input type="text" class="form-control" id="searchInput" placeholder="Search by customer...">
+                </div>
+            </div>
+        </div>
+
+        <!-- Feedback Table -->
+        <div class="feedback-table-container">
+            <h3 style="color: var(--dark-coffee); margin-bottom: 20px;">
+                <i class="fas fa-comments"></i> Customer Feedback
+            </h3>
+            <div class="table-responsive">
+                <table class="feedback-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Customer</th>
+                            <th>Product</th>
+                            <th>Rating</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="feedbackTableBody">
+                        <tr>
+                            <td>#FB001</td>
+                            <td>Sarah Johnson</td>
+                            <td>Modern Sofa Set</td>
+                            <td>
+                                <div class="rating-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </td>
+                            <td>2026-01-02</td>
+                            <td><span class="badge-published">Published</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn view" onclick="viewFeedback(1)">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="action-btn delete" onclick="deleteFeedback(1)">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#FB002</td>
+                            <td>Michael Brown</td>
+                            <td>Wooden Dining Table</td>
+                            <td>
+                                <div class="rating-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                            </td>
+                            <td>2026-01-01</td>
+                            <td><span class="badge-pending">Pending</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn view" onclick="viewFeedback(1)">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="action-btn publish" onclick="publishFeedback(2)">
+                                        <i class="fas fa-check"></i>
+                                    </button>
+                                    <button class="action-btn delete" onclick="deleteFeedback(1)">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#FB003</td>
+                            <td>Emily Davis</td>
+                            <td>Leather Recliner</td>
+                            <td>
+                                <div class="rating-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </td>
+                            <td>2025-12-30</td>
+                            <td><span class="badge-published">Published</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn view" onclick="viewFeedback(1)">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="action-btn delete" onclick="deleteFeedback(1)">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#FB004</td>
+                            <td>David Wilson</td>
+                            <td>Office Desk Chair</td>
+                            <td>
+                                <div class="rating-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                            </td>
+                            <td>2025-12-29</td>
+                            <td><span class="badge-pending">Pending</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn view" onclick="viewFeedback(1)">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="action-btn publish" onclick="publishFeedback(4)">
+                                        <i class="fas fa-check"></i>
+                                    </button>
+                                    <button class="action-btn delete" onclick="deleteFeedback(1)">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#FB005</td>
+                            <td>Lisa Anderson</td>
+                            <td>King Size Bed Frame</td>
+                            <td>
+                                <div class="rating-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                            </td>
+                            <td>2025-12-28</td>
+                            <td><span class="badge-published">Published</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn view" onclick="viewFeedback(1)">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="action-btn delete" onclick="deleteFeedback(1)">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <!-- VIEW FEEDBACK MODAL -->
+    <div class="modal-overlay" id="viewModal">
+        <div class="modal-box">
+            <div class="modal-header-new">
+                <h3>Feedback Details</h3>
+                <button class="modal-close-btn" onclick="closeModal('viewModal')">&times;</button>
+            </div>
+            <div class="modal-body-new">
+                <div class="info-row">
+                    <p><strong>Feedback ID:</strong> #FB001</p>
+                    <p><strong>Customer:</strong> Sarah Johnson</p>
+                    <p><strong>Email:</strong> sarah.j@email.com</p>
+                    <p><strong>Date:</strong> 2026-01-02</p>
+                    <p><strong>Status:</strong> <span class="badge-published">Published</span></p>
+                </div>
+
+                <div class="product-info">
+                    <img src="https://via.placeholder.com/80" alt="Product">
+                    <div class="product-details">
+                        <h5>Modern Sofa Set</h5>
+                        <p>Category: Living Room Furniture</p>
+                        <p>Price: $899.00</p>
+                    </div>
+                </div>
+
+                <p><strong>Rating:</strong></p>
+                <div class="rating-stars" style="font-size: 24px; margin-bottom: 15px;">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+
+                <p><strong>Review:</strong></p>
+                <div class="feedback-text-box">
+                    Absolutely love this sofa set! The quality is exceptional and it looks exactly like the pictures. The delivery was prompt and the assembly was straightforward. Very comfortable and adds a modern touch to my living room. Highly recommend!
+                </div>
+            </div>
+            <div class="modal-footer-new">
+                <button class="modal-btn modal-btn-cancel" onclick="closeModal('viewModal')">Close</button>
+                <button class="modal-btn modal-btn-publish">
+                    <i class="fas fa-check"></i> Publish Review
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/feedback.js"></script>
+</body>
+</html>

@@ -1,0 +1,251 @@
+@import url("common.css");
+
+body {
+    background: linear-gradient(135deg, var(--cream) 0%, var(--beige) 50%, var(--dark-beige) 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    }
+
+/* Login Container */
+.login-container {
+    display: flex;
+    max-width: 1000px;
+    width: 30%;
+    background: white;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(139, 115, 85, 0.3);
+    z-index: 10;
+    position: relative;
+    animation: slideUp 0.8s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Right Side - Form */
+.login-right {
+    flex: 1;
+    padding: 60px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--cream);
+}
+
+.login-header {
+    margin-bottom: 40px;
+}
+
+.login-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    color: var(--dark-coffee);
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.login-subtitle {
+    color: var(--soft-brown);
+    font-size: 14px;
+    font-weight: 300;
+}
+
+/* Form Styling */
+.form-group {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.form-label {
+    display: block;
+    color: var(--charcoal);
+    font-weight: 500;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.form-input-wrapper {
+    position: relative;
+}
+
+.form-icon {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--soft-brown);
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.form-control {
+    width: 100%;
+    padding: 15px 20px 15px 55px;
+    border: 2px solid var(--dark-beige);
+    border-radius: 15px;
+    font-size: 15px;
+    transition: all 0.3s;
+    background: white;
+    color: var(--charcoal);
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--coffee);
+    box-shadow: 0 0 0 4px rgba(139, 115, 85, 0.1);
+}
+
+.form-control:focus + .form-icon {
+    color: var(--coffee);
+}
+
+/* Password Toggle */
+.password-toggle {
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--soft-brown);
+    cursor: pointer;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.password-toggle:hover {
+    color: var(--coffee);
+}
+
+/* Remember Me & Forgot Password */
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    font-size: 14px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    color: var(--charcoal);
+}
+
+.remember-me input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--coffee);
+    cursor: pointer;
+}
+
+.forgot-password {
+    color: var(--coffee);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.forgot-password:hover {
+    color: var(--dark-coffee);
+}
+
+/* Login Button */
+.btn-login {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, var(--coffee), var(--dark-coffee));
+    border: none;
+    border-radius: 15px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 8px 20px rgba(139, 115, 85, 0.3);
+    letter-spacing: 0.5px;
+}
+
+.btn-login:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(139, 115, 85, 0.4);
+}
+
+.btn-login:active {
+    transform: translateY(0);
+}
+
+/* Alert Messages */
+.alert-message {
+    padding: 12px 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    display: none;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.alert-error {
+    background: #fee;
+    color: #c33;
+    border-left: 4px solid #c33;
+}
+
+.alert-success {
+    background: #efe;
+    color: #3c3;
+    border-left: 4px solid #3c3;
+}
+
+/* Loading Spinner */
+.spinner {
+    display: none;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255,255,255,0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin-left: 10px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.btn-login.loading {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.btn-login.loading .spinner {
+    display: inline-block;
+}

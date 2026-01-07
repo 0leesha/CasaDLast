@@ -1,0 +1,177 @@
+@import url("common.css");
+@import url("navbar.css");
+@import url("sidebar.css");
+@import url("maincontent.css");
+@import url("searchbar.css");
+@import url("button.css");
+
+.content-card {
+    background: white;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.filter-select {
+    padding: 10px 15px;
+    border: 1px solid var(--dark-beige);
+    border-radius: 8px;
+    min-width: 150px;
+    transition: all 0.3s;
+}
+
+.filter-select:focus {
+    outline: none;
+    border-color: var(--coffee);
+    box-shadow: 0 0 0 3px rgba(139, 115, 85, 0.1);
+}
+
+.products-table {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.products-table thead {
+    background: var(--beige);
+}
+
+.products-table th {
+    padding: 15px;
+    font-weight: 600;
+    color: var(--dark-coffee);
+    border: none;
+    font-size: 14px;
+}
+
+.products-table td {
+    padding: 15px;
+    vertical-align: middle;
+    border-bottom: 1px solid var(--dark-beige);
+}
+
+.products-table tbody tr {
+    transition: all 0.3s;
+}
+
+.products-table tbody tr:hover {
+    background: var(--cream);
+}
+
+.product-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 2px solid var(--dark-beige);
+}
+
+.status-badge {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    display: inline-block;
+}
+
+.status-badge.in-stock {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status-badge.low-stock {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status-badge.out-of-stock {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.modal-header {
+    background: linear-gradient(135deg, var(--coffee), var(--dark-coffee));
+    color: white;
+    border-radius: 10px 10px 0 0;
+}
+
+.modal-content {
+    border-radius: 10px;
+    border: none;
+}
+
+.form-label {
+    color: var(--charcoal);
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.form-control,
+.form-select {
+    border: 1px solid var(--dark-beige);
+    border-radius: 8px;
+    padding: 10px 15px;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--coffee);
+    box-shadow: 0 0 0 0.2rem rgba(139, 115, 85, 0.15);
+}
+
+.file-upload-wrapper {
+    position: relative;
+    border: 2px dashed var(--dark-beige);
+    border-radius: 8px;
+    padding: 30px 20px;
+    text-align: center;
+    background: var(--cream);
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.file-upload-wrapper:hover {
+    border-color: var(--coffee);
+    background: var(--beige);
+}
+
+.file-upload-wrapper input[type="file"] {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+}
+
+.file-upload-icon {
+    font-size: 40px;
+    color: var(--soft-brown);
+    margin-bottom: 10px;
+}
+
+.file-upload-text {
+    color: var(--charcoal);
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+    .main-content {
+        margin-left: 0;
+    }
+    .search-filter-bar {
+        flex-direction: column;
+    }
+    .search-box,
+    .filter-select {
+        width: 100%;
+    }
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+}

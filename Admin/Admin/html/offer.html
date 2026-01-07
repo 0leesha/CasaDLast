@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offers - CasaDLast Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/offer.css">
+</head>
+<body>
+    <!-- Top Navbar -->
+    <nav class="top-navbar">
+        <div class="logo-section">
+            <img src="../../logo.jpeg" alt="CasaDLast Logo" class="logo-image">
+            <span>CasaDLast Admin</span>
+        </div>
+        <div>
+            <a href="account.html" class="me-3" style="color: white; text-decoration: none;">
+                <i class="fas fa-user-circle"></i> Account
+            </a>
+            <button class="btn logout-btn">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <ul class="sidebar-menu">
+            <li><a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
+            <li><a href="manageusers.html"><i class="fas fa-users"></i> <span>Manage Users</span></a></li>
+            <li><a href="category.html"><i class="fas fa-list"></i> <span>Categories</span></a></li>
+            <li><a href="subcategory.html"><i class="fas fa-sitemap"></i> <span>Sub Categories</span></a></li>
+            <li><a href="product.html"><i class="fas fa-couch"></i> <span>Products</span></a></li>
+            <li><a href="order.html"><i class="fas fa-shopping-cart"></i> <span>Orders</span></a></li>
+            <li><a href="offer.html" class="active"><i class="fas fa-tag"></i> <span>Offers</span></a></li>
+            <li><a href="deliverypartner.html"><i class="fas fa-truck"></i> <span>Delivery Partners</span></a></li>
+            <li><a href="payment.html"><i class="fas fa-credit-card"></i><span>Payments</span></a></li>
+            <li><a href="invoice.html"><i class="fas fa-file-invoice"></i> <span>Invoices</span></a></li>
+            <li><a href="inquiry.html"><i class="fas fa-envelope"></i> <span>Inquiries</span></a></li>
+            <li><a href="feedback.html"><i class="fas fa-star"></i> <span>Feedbacks</span></a></li>
+            <li><a href="gallery.html"><i class="fas fa-chart-bar"></i> <span>Gallery/Blogs</span></a></li>
+            <li><a href="report.html"><i class="fas fa-chart-bar"></i> <span>Reports</span></a></li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Page Header -->
+        <div class="page-header">
+            <div>
+                <h1>Offers Management</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="dashboard.html">Home</a></li>
+                        <li class="breadcrumb-item active">Offers</li>
+                    </ol>
+                </nav>
+            </div>
+            <button class="btn btn-coffee" data-bs-toggle="modal" data-bs-target="#addOfferModal">
+                <i class="fas fa-plus"></i> Create Offer
+            </button>
+        </div>
+
+        <!-- Content Card -->
+        <div class="content-card">
+            <!-- Search & Filter Bar -->
+            <div class="search-filter-bar">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Search offers...">
+                </div>
+                <select class="filter-select" id="statusFilter">
+                    <option value="">All Status</option>
+                    <option value="active">Active</option>
+                    <option value="upcoming">Upcoming</option>
+                    <option value="expired">Expired</option>
+                </select>
+                <button class="btn btn-coffee" onclick="refreshTable()">
+                    <i class="fas fa-sync-alt"></i> Refresh
+                </button>
+            </div>
+
+            <!-- Offers Table -->
+            <div class="table-responsive">
+                <table class="table offers-table">
+                    <thead>
+                        <tr>
+                            <th>Offer Name</th>
+                            <th>Code</th>
+                            <th>Discount</th>
+                            <th>Valid From</th>
+                            <th>Valid To</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="offersTableBody">
+                        <tr>
+                            <td><strong>New Year Sale</strong></td>
+                            <td><code>NY2025</code></td>
+                            <td><span class="offer-badge">50% OFF</span></td>
+                            <td>Jan 1, 2025</td>
+                            <td>Jan 15, 2025</td>
+                            <td><span class="status-badge upcoming">Upcoming</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn view" onclick="viewOffer(1)" title="View Details">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="action-btn edit" onclick="editOffer(1)" title="Edit">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="action-btn delete" onclick="deleteOffer(1)" title="Delete">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Festive Offer</strong></td>
+                            <td><code>FEST25</code></td>
+                            <td><span class="offer-badge">25% OFF</span></td>
+                            <td>Dec 1, 2024</td>
+                            <td>Dec 31, 2024</td>
+                            <td><span class="status-badge active">Active</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn view" onclick="viewOffer(2)" title="View Details">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="action-btn edit" onclick="editOffer(2)" title="Edit">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="action-btn delete" onclick="deleteOffer(2)" title="Delete">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Weekend Special</strong></td>
+                            <td><code>WKND30</code></td>
+                            <td><span class="offer-badge">30% OFF</span></td>
+                            <td>Dec 14, 2024</td>
+                            <td>Dec 15, 2024</td>
+                            <td><span class="status-badge active">Active</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn view" onclick="viewOffer(3)" title="View Details">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="action-btn edit" onclick="editOffer(3)" title="Edit">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="action-btn delete" onclick="deleteOffer(3)" title="Delete">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Summer Sale</strong></td>
+                            <td><code>SUM20</code></td>
+                            <td><span class="offer-badge">20% OFF</span></td>
+                            <td>Jun 1, 2024</td>
+                            <td>Jun 30, 2024</td>
+                            <td><span class="status-badge expired">Expired</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn view" onclick="viewOffer(4)" title="View Details">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="action-btn edit" onclick="editOffer(4)" title="Edit">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="action-btn delete" onclick="deleteOffer(4)" title="Delete">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Flash Sale</strong></td>
+                            <td><code>FLASH40</code></td>
+                            <td><span class="offer-badge">40% OFF</span></td>
+                            <td>Dec 18, 2024</td>
+                            <td>Dec 18, 2024</td>
+                            <td><span class="status-badge active">Active</span></td>
+                            <td>
+                                <div class="action-buttons">
+                                    <button class="action-btn view" onclick="viewOffer(5)" title="View Details">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="action-btn edit" onclick="editOffer(5)" title="Edit">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="action-btn delete" onclick="deleteOffer(5)" title="Delete">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <!-- Add Offer Modal -->
+    <div class="modal fade" id="addOfferModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-plus-circle"></i> Create New Offer</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addOfferForm">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Offer Name <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" placeholder="e.g., New Year Sale" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Offer Code <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" placeholder="e.g., NY2025" required>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Description <span class="text-danger">*</span></label>
+                                <textarea class="form-control" placeholder="Offer description" rows="3" required></textarea>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Discount Type <span class="text-danger">*</span></label>
+                                <select class="form-select" required>
+                                    <option value="">Select Type</option>
+                                    <option value="percentage">Percentage</option>
+                                    <option value="fixed">Fixed Amount</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Discount Value <span class="text-danger">*</span></label>
+                                <input type="number" class="form-control" placeholder="e.g., 50" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Max Discount (₹)</label>
+                                <input type="number" class="form-control" placeholder="e.g., 5000">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Valid From <span class="text-danger">*</span></label>
+                                <input type="date" class="form-control" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Valid To <span class="text-danger">*</span></label>
+                                <input type="date" class="form-control" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Minimum Purchase (₹)</label>
+                                <input type="number" class="form-control" placeholder="e.g., 10000">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Usage Limit</label>
+                                <input type="number" class="form-control" placeholder="e.g., 100">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Applicable On</label>
+                                <select class="form-select">
+                                    <option value="all">All Products</option>
+                                    <option value="category">Specific Category</option>
+                                    <option value="product">Specific Product</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Status</label>
+                                <select class="form-select">
+                                    <option value="active" selected>Active</option>
+                                    <option value="inactive">Inactive</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Offer Preview -->
+                        <div class="offer-preview">
+                            <h3>50% OFF</h3>
+                            <p>Use Code: NY2025</p>
+                            <small>Valid: Jan 1 - Jan 15, 2025</small>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-coffee" onclick="saveOffer()">
+                        <i class="fas fa-save"></i> Create Offer
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- View Offer Modal -->
+    <div class="modal fade" id="viewOfferModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-tag"></i> Offer Details</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="offer-preview">
+                        <h3>50% OFF</h3>
+                        <p><strong>New Year Sale</strong></p>
+                        <p>Use Code: <code>NY2025</code></p>
+                        <small>Valid: Jan 1 - Jan 15, 2025</small>
+                    </div>
+                    <div class="mt-4">
+                        <p><strong>Description:</strong> Get 50% off on all furniture items during New Year season</p>
+                        <p><strong>Minimum Purchase:</strong> ₹10,000</p>
+                        <p><strong>Max Discount:</strong> ₹5,000</p>
+                        <p><strong>Usage Limit:</strong> 100 times</p>
+                        <p><strong>Used:</strong> 23 times</p>
+                        <p><strong>Status:</strong> <span class="status-badge upcoming">Upcoming</span></p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/offer.js"></script>
+</body>
+</html>
